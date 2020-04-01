@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Corona</string>
+
+
+    <string name="notification_text">Tracking, tap to cancel</string>
+    <string name="transport_id" translatable="false">123</string>
+    <string name="firebase_path" translatable="false">locations</string>
+    <string name="firebase_email" translatable="false">test@example.com</string>
+    <string name="firebase_password" translatable="false">password</string>
+    <string name="string_result1_consult_doctor">Consult your doctor immediately or call the helpline number- 1075 (toll-free) or 011-23978046 \nFollow doctor’s advice and undergo laboratory tests if suggested by your doctor. \nStrictly follow home isolation and avoid any kind of contact with anyone. \nThe best way to prevent Coronavirus is by following preventive measures. Therefore, please follow precautionary measures (mentioned below) to protect yourself and others.  \nPlease stay alert and educate yourself with the latest updates from WHO</string>
+    <string name="based_on_your_coronavirus_risk_scan_bione_team_of_experts_recommends">Based on your Coronavirus risk scan, Bione team of experts recommends:</string>
+    <string name="string_result1_buynow_bottom">Your intestines harbour billions of bacteria that have a profound effect on your health including your body’s response to Coronavirus. This gut flora plays a major role in the optimal functioning of your immune system. My Microbiome test can identify microbial imbalance in your gut which can affect your immunity against Coronavirus.</string>
+    <string name="my_microbiome_kit">My Microbiome kit</string>
+    <string name="covid_19_diagnostic_home_test_kit">COVID-19 Diagnostic home test kit</string>
+    <string name="string_result1_bottom2">Revolutionary product which tells you about the presence of COVID-19 within 5-10 mins. It is a self-use diagnostic test for CORONAVIRUS which can be used in the comfort of your home.</string>
+    <string name="consult_health_care_provider_navoid_all_contact">Consult health care provider.\n Avoid all contact</string>
+</resources>

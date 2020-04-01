@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/spacing_normal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="Result"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_xlarge" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="@string/consult_health_care_provider_navoid_all_contact"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/font_xlarge" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/spacing_normal"
+                    android:src="@mipmap/ic_doctor"
+                    android:visibility="visible" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="@string/string_result1_consult_doctor"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/font_xlarge"
+                    android:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="@string/based_on_your_coronavirus_risk_scan_bione_team_of_experts_recommends"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/font_xlarge" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_normal"
+                android:background="@drawable/drawable_home_stroke"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <androidx.appcompat.widget.AppCompatImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="@dimen/spacing_normal"
+                    android:src="@mipmap/ic_microbiome"
+                    android:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="@string/my_microbiome_kit"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/font_xlarge" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvMicroBioMe"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="@dimen/spacing_normal"
+                    android:background="@drawable/drawable_common_button"
+                    android:drawableRight="@drawable/ic_continue"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="BUY NOW"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_large" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="@string/string_result1_buynow_bottom"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/font_xlarge" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spacing_normal"
+                android:layout_marginTop="@dimen/spacing_normal"
+                android:background="@drawable/drawable_home_stroke"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginVertical="@dimen/spacing_normal"
+                    android:src="@mipmap/ic_diagnostic"
+                    android:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="@string/covid_19_diagnostic_home_test_kit"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDiagnostic"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="@dimen/spacing_normal"
+                    android:background="@drawable/drawable_common_button"
+                    android:drawableRight="@drawable/ic_continue"
+                    android:gravity="center"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="BUY NOW"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_large" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/spacing_normal"
+                    android:text="@string/string_result1_bottom2"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/font_xsmall" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

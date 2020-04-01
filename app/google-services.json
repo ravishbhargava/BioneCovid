@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "676862021130",
+    "firebase_url": "https://tracking-739b5.firebaseio.com",
+    "project_id": "tracking-739b5",
+    "storage_bucket": "tracking-739b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:676862021130:android:a8133a131e245081e399f3",
+        "android_client_info": {
+          "package_name": "com.bione.corona"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "676862021130-6ur4l49nun9781h88ik4q291s9q21d0t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bione.corona",
+            "certificate_hash": "5acf530c353a34d47d0c91c54ad87c18291862ca"
+          }
+        },
+        {
+          "client_id": "676862021130-p4u6np7uebtsbm2uoacblcovlpc46q93.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBis5DG86yimfpHrVcxeD902PGNVUlCyTI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "676862021130-p4u6np7uebtsbm2uoacblcovlpc46q93.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

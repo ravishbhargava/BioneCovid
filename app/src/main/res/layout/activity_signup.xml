@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/light_white">
+
+
+    <include layout="@layout/include_header" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:gravity="center"
+            android:padding="@dimen/spacing_normal"
+            android:text=" Enter your login details to \naccess your account"
+            android:textColor="@color/black"
+            android:textSize="@dimen/font_xxlarge" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/spacing_normal"
+            android:background="@drawable/drawable_home_stroke"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/transparent"
+                android:gravity="left|center"
+                android:hint="name"
+                android:padding="@dimen/spacing_normal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_large" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_light" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/transparent"
+                android:gravity="left|center"
+                android:hint="email"
+                android:padding="@dimen/spacing_normal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_large" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/gray_light" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:background="@color/transparent"
+                android:gravity="left|center"
+                android:hint="password"
+                android:padding="@dimen/spacing_normal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_large" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvContinue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_large"
+            android:layout_marginTop="@dimen/spacing_normal"
+            android:background="@drawable/drawable_common_button"
+            android:gravity="center"
+            android:padding="@dimen/spacing_normal"
+            android:layout_alignParentBottom="true"
+            android:drawableRight="@drawable/ic_continue"
+            android:text="CONTINUE"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_large" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
