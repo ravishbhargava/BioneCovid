@@ -13,5 +13,17 @@
     <string name="my_microbiome_kit">My Microbiome kit</string>
     <string name="covid_19_diagnostic_home_test_kit">COVID-19 Diagnostic home test kit</string>
     <string name="string_result1_bottom2">Revolutionary product which tells you about the presence of COVID-19 within 5-10 mins. It is a self-use diagnostic test for CORONAVIRUS which can be used in the comfort of your home.</string>
+
+
     <string name="consult_health_care_provider_navoid_all_contact">Consult health care provider.\n Avoid all contact</string>
+
+
+    <string name="string_result2_yoga_bottom_text">Follow preventive measures \nThe best way to prevent Coronavirus is by following preventive measures. Therefore, please follow precautionary measures (mentioned below) to protect yourself and others.\nStay home and avoid meeting others or being a part of any gathering. This will prevent the spread of infection.\nPlease stay alert and educate yourself with the latest updates from WHO</string>
+    <string name="quarantine_stay_home_and_monitor_your">Quarantine \nStay home and monitor your</string>
+    <string name="covid_19_diagnostic_home_test_kit">COVID-19 Diagnostic home test kit</string>
+    <string name="string_result2_yoga_kit_bottom">Your DNA may have gene variants which can make you more vulnerable to viruses. This test can detect those variants and find out your susceptibility to Coronavirus.</string>
+    <string name="string_result_bottom_link"><![CDATA[For more information related to Bione products & services please visit www.bione.in or email us on marketing@bione.in]]></string>
+    <string name="string_result3_bottom_sneeze">According to your answers, you have a high risk of Coronavirus infection. You need to immediately seek medical care and get yourself tested. Call the helpline number- 1075 (toll-free) or 011-23978046 Till you get medical care, strictly stay in home isolation and avoid any contact with anyone. Please follow precautionary measures (mentioned below) to protect yourself and others. Please stay alert and educate yourself with the latest updates from WHO</string>
+
+
 </resources>
