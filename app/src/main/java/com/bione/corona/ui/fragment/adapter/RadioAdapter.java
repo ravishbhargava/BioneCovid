@@ -98,5 +98,12 @@ public class RadioAdapter extends RecyclerView.Adapter<RadioAdapter.MyViewHolder
         }
     }
 
+    public ArrayList<Slots> getSlots() {
+        return slots;
+    }
+
+    public int getCheckedPosition() {
+        return checkedPosition;
+    }
 }
 

@@ -98,4 +98,8 @@ public class CheckBoxAdapter extends RecyclerView.Adapter<CheckBoxAdapter.MyView
         }
         notifyDataSetChanged();
     }
+
+    public ArrayList<Slots> getSlots() {
+        return slots;
+    }
 }

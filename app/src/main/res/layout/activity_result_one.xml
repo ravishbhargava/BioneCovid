@@ -33,7 +33,7 @@
                     android:text="Result"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/font_xlarge" />
+                    android:textSize="@dimen/font_large" />
 
                 <androidx.appcompat.widget.AppCompatTextView
 
@@ -44,7 +44,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/consult_health_care_provider_navoid_all_contact"
                     android:textAlignment="center"
-                    android:textSize="@dimen/font_xlarge" />
+                    android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivBack"
@@ -66,7 +66,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/string_result1_consult_doctor"
                     android:textAlignment="center"
-                    android:textSize="@dimen/font_xlarge"
+                    android:textSize="@dimen/font_xsmall"
                     android:visibility="visible" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -78,7 +78,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/based_on_your_coronavirus_risk_scan_bione_team_of_experts_recommends"
                     android:textAlignment="center"
-                    android:textSize="@dimen/font_xlarge" />
+                    android:textSize="@dimen/font_small" />
 
             </LinearLayout>
 
@@ -110,7 +110,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/my_microbiome_kit"
                     android:textAlignment="center"
-                    android:textSize="@dimen/font_xlarge" />
+                    android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/tvMicroBioMe"
@@ -135,7 +135,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/string_result1_buynow_bottom"
                     android:textAlignment="center"
-                    android:textSize="@dimen/font_xlarge" />
+                    android:textSize="@dimen/font_xsmall" />
 
 
             </LinearLayout>

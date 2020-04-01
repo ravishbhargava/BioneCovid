@@ -20,6 +20,7 @@ public class SurveyActivity extends AppCompatActivity {
 
     private ProgressBar progressBar;
     private AppCompatImageView ivBack;
+    public static int resultCorona = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class SurveyActivity extends AppCompatActivity {
 
 
         // setting viewPager's pages
-        final SurveyAdapter adapter = new SurveyAdapter(getSupportFragmentManager(), 8);
+        final SurveyAdapter adapter = new SurveyAdapter(getSupportFragmentManager(), 10);
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
 

@@ -2,6 +2,7 @@ package com.bione.corona.ui.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,13 +17,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bione.corona.R;
 import com.bione.corona.model.Slots;
+import com.bione.corona.ui.DashBoardActivity;
+import com.bione.corona.ui.ResulActivity;
 import com.bione.corona.ui.SurveyActivity;
-import com.bione.corona.ui.fragment.adapter.CheckBoxAdapter;
 import com.bione.corona.ui.fragment.adapter.RadioAdapter;
+import com.bione.corona.utils.Log;
 
 import java.util.ArrayList;
 
-public class Question8ProgressFragment extends Fragment {
+import static com.bione.corona.ui.SurveyActivity.resultCorona;
+
+public class Question8CoughingFragment extends Fragment {
 
 
     private View rootView;
@@ -33,9 +38,9 @@ public class Question8ProgressFragment extends Fragment {
     private String type = "Past";
     private AppCompatTextView tvContinue;
     private AppCompatTextView tvQuestion;
-    private String question = "How have your symptoms progressed over the last 48 hrs?*";
+    private String question = "Are you coughing up blood?";
 
-    public Question8ProgressFragment() {
+    public Question8CoughingFragment() {
 
     }
 
@@ -66,12 +71,21 @@ public class Question8ProgressFragment extends Fragment {
             tvContinue.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-
+                    if (mAdapter.getCheckedPosition() == 0) {
+                        resultCorona = resultCorona + 1;
+                    }
                     Activity activity = getActivity();
                     if (activity instanceof SurveyActivity) {
                         SurveyActivity myActivity = (SurveyActivity) activity;
-                        myActivity.nextStep(1);
+                        Log.d("resultCorona", ": " + resultCorona);
+                        if (resultCorona > 0) {
+                            Intent intent = new Intent(myActivity, ResulActivity.class);
+                            startActivity(intent);
+                            myActivity.finish();
+                        } else {
+                            myActivity.nextStep(1);
+                        }
+
                     }
                 }
             });
@@ -100,24 +114,16 @@ public class Question8ProgressFragment extends Fragment {
 
         ArrayList<Slots> array = new ArrayList<>();
 
-        Slots slots1 = new Slots("Improved", false);
-        Slots slots2 = new Slots("No change", false);
-        Slots slots3 = new Slots("Worsened", false);
-        Slots slots4 = new Slots("Worsened considerably", false);
-//        Slots slots5 = new Slots("Lung Disease", false);
-//        Slots slots6 = new Slots("Stroke", false);
-//        Slots slots7 = new Slots("Reduce Immunity", false);
-//        Slots slots8 = new Slots("None of these", false);
+        Slots slots1 = new Slots("Yes", false);
+        Slots slots2 = new Slots("No", false);
+//        Slots slots3 = new Slots("High Fever > 102 F", false);
+//        Slots slots4 = new Slots("Close contact with confirmed COVID-19 case in last 14 days", false);
 
 
         array.add(slots1);
         array.add(slots2);
-        array.add(slots3);
-        array.add(slots4);
-//        array.add(slots5);
-//        array.add(slots6);
-//        array.add(slots7);
-//        array.add(slots8);
+//        array.add(slots3);
+//        array.add(slots4);
 
 
         // specify an adapter (see also next example)

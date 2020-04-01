@@ -41,13 +41,18 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
-        android:name=".ui.DashBoardActivity"
-        android:screenOrientation="portrait"
-        android:windowSoftInputMode="stateHidden" />
+            android:name=".ui.DashBoardActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
 
 
         <activity
             android:name=".ui.SurveyActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".ui.ResulActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 

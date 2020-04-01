@@ -7,9 +7,9 @@
     <include layout="@layout/include_header" />
 
     <RelativeLayout
-        android:layout_below="@+id/header"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/header">
 
         <ProgressBar
             android:id="@+id/progressBar"
@@ -18,22 +18,18 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_margin="@dimen/spacing_large"
-            android:layout_marginLeft="23dp"
-
-            android:layout_marginTop="20dp"
+            android:layout_margin="@dimen/spacing_small"
             android:indeterminate="false"
-            android:max="9"
+            android:max="10"
             android:minWidth="200dp"
             android:minHeight="50dp"
             android:progress="1" />
 
         <com.bione.corona.utils.CustomViewPager
             android:id="@+id/viewpager"
-            android:layout_below="@id/progressBar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/tvSchedule"
+            android:layout_below="@id/progressBar"
             android:layout_margin="@dimen/spacing_normal" />
 
 

@@ -18,13 +18,10 @@ import com.bione.corona.R;
 import com.bione.corona.model.Slots;
 import com.bione.corona.ui.SurveyActivity;
 import com.bione.corona.ui.fragment.adapter.CheckBoxAdapter;
-import com.bione.corona.utils.Log;
 
 import java.util.ArrayList;
 
-import static com.bione.corona.ui.SurveyActivity.resultCorona;
-
-public class Question4SymptomsFragment extends Fragment {
+public class QuestionLaterSymptomsFragment extends Fragment {
 
 
     private View rootView;
@@ -35,9 +32,9 @@ public class Question4SymptomsFragment extends Fragment {
     private String type = "Past";
     private AppCompatTextView tvContinue;
     private AppCompatTextView tvQuestion;
-    private String question = "Do you have any of the following symptoms? Please select symptoms that are not related to any chronic disease you may be subject to";
+    private String question = "Additionally, please specify if you are experiencing any of the symptoms below:*";
 
-    public Question4SymptomsFragment() {
+    public QuestionLaterSymptomsFragment() {
 
     }
 
@@ -73,26 +70,7 @@ public class Question4SymptomsFragment extends Fragment {
                     Activity activity = getActivity();
                     if (activity instanceof SurveyActivity) {
                         SurveyActivity myActivity = (SurveyActivity) activity;
-                        ArrayList<Slots> arrayList = mAdapter.getSlots();
-                        Log.d("slotss ----- ", "arrray : " + mAdapter.getSlots());
-//                        for (int i = 0; i < arrayList.size(); i++) {
-//                            if(i==0)
-//                        }
-                        if (arrayList.get(0).isSelected() && arrayList.get(1).isSelected()) {
-                            myActivity.nextStep(1);
-                        } else if (arrayList.get(0).isSelected() && arrayList.get(2).isSelected()) {
-                            myActivity.nextStep(1);
-                        } else if (arrayList.get(1).isSelected() && arrayList.get(2).isSelected()) {
-                            myActivity.nextStep(2);
-                        } else if (arrayList.get(0).isSelected()) {
-                            myActivity.nextStep(1);
-                        } else if (arrayList.get(1).isSelected()) {
-                            myActivity.nextStep(2);
-                        } else if (arrayList.get(2).isSelected()) {
-                            myActivity.nextStep(2);
-                        } else {
-                            myActivity.nextStep(5);
-                        }
+                        myActivity.nextStep(1);
                     }
                 }
             });
@@ -121,16 +99,22 @@ public class Question4SymptomsFragment extends Fragment {
 
         ArrayList<Slots> array = new ArrayList<>();
 
-        Slots slots1 = new Slots("Fever", false);
-        Slots slots2 = new Slots("Cough", false);
-        Slots slots3 = new Slots("Shortness of Breath", false);
-        Slots slots4 = new Slots("None of these", false);
+        Slots slots1 = new Slots("Feeling Breathless", false);
+        Slots slots2 = new Slots("Difficulty in Breathing", false);
+        Slots slots3 = new Slots("Pain in Chest", false);
+        Slots slots4 = new Slots("Severe Weakness", false);
+        Slots slots5 = new Slots("Moderate to severe cough", false);
+        Slots slots6 = new Slots("Drowsiness", false);
+        Slots slots7 = new Slots("None of these", false);
 
 
         array.add(slots1);
         array.add(slots2);
         array.add(slots3);
         array.add(slots4);
+        array.add(slots5);
+        array.add(slots6);
+        array.add(slots7);
 
 
         // specify an adapter (see also next example)
@@ -138,7 +122,7 @@ public class Question4SymptomsFragment extends Fragment {
         recyclerView.setAdapter(mAdapter);
 
 //        // specify an adapter (see also next example)
-//        mAdapter = new RadioAdapter(mContext, type);
+//        mAdapter = new CheckBoxAdapter(mContext, type);
         recyclerView.setAdapter(mAdapter);
     }
 

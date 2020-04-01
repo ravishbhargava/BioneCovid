@@ -17,24 +17,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bione.corona.R;
 import com.bione.corona.model.Slots;
 import com.bione.corona.ui.SurveyActivity;
-import com.bione.corona.ui.fragment.adapter.CheckBoxAdapter;
+import com.bione.corona.ui.fragment.adapter.RadioAdapter;
 
 import java.util.ArrayList;
 
-public class Question5SymptomsFragment extends Fragment {
+import static com.bione.corona.ui.SurveyActivity.resultCorona;
+
+public class Question7BreathingFragment extends Fragment {
 
 
     private View rootView;
-    private CheckBoxAdapter mAdapter;
+    private RadioAdapter mAdapter;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private Context mContext;
     private String type = "Past";
     private AppCompatTextView tvContinue;
     private AppCompatTextView tvQuestion;
-    private String question = "Additionally, please specify if you are experiencing any of the symptoms below:*";
+    private String question = "Are you breathing very fast?";
 
-    public Question5SymptomsFragment() {
+    public Question7BreathingFragment() {
 
     }
 
@@ -70,6 +72,9 @@ public class Question5SymptomsFragment extends Fragment {
                     Activity activity = getActivity();
                     if (activity instanceof SurveyActivity) {
                         SurveyActivity myActivity = (SurveyActivity) activity;
+                        if(mAdapter.getCheckedPosition()==0){
+                            resultCorona = resultCorona + 1;
+                        }
                         myActivity.nextStep(1);
                     }
                 }
@@ -99,30 +104,24 @@ public class Question5SymptomsFragment extends Fragment {
 
         ArrayList<Slots> array = new ArrayList<>();
 
-        Slots slots1 = new Slots("Feeling Breathless", false);
-        Slots slots2 = new Slots("Difficulty in Breathing", false);
-        Slots slots3 = new Slots("Pain in Chest", false);
-        Slots slots4 = new Slots("Severe Weakness", false);
-        Slots slots5 = new Slots("Moderate to severe cough", false);
-        Slots slots6 = new Slots("Drowsiness", false);
-        Slots slots7 = new Slots("None of these", false);
+        Slots slots1 = new Slots("Yes", false);
+        Slots slots2 = new Slots("No", false);
+//        Slots slots3 = new Slots("High Fever > 102 F", false);
+//        Slots slots4 = new Slots("Close contact with confirmed COVID-19 case in last 14 days", false);
 
 
         array.add(slots1);
         array.add(slots2);
-        array.add(slots3);
-        array.add(slots4);
-        array.add(slots5);
-        array.add(slots6);
-        array.add(slots7);
+//        array.add(slots3);
+//        array.add(slots4);
 
 
         // specify an adapter (see also next example)
-        mAdapter = new CheckBoxAdapter(array);
+        mAdapter = new RadioAdapter(array);
         recyclerView.setAdapter(mAdapter);
 
 //        // specify an adapter (see also next example)
-//        mAdapter = new CheckBoxAdapter(mContext, type);
+//        mAdapter = new RadioAdapter(mContext, type);
         recyclerView.setAdapter(mAdapter);
     }
 

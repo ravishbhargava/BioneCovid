@@ -21,7 +21,9 @@ import com.bione.corona.ui.fragment.adapter.RadioAdapter;
 
 import java.util.ArrayList;
 
-public class Question3TempFragment extends Fragment {
+import static com.bione.corona.ui.SurveyActivity.resultCorona;
+
+public class Question6RapidlyFragment extends Fragment {
 
 
     private View rootView;
@@ -32,9 +34,9 @@ public class Question3TempFragment extends Fragment {
     private String type = "Past";
     private AppCompatTextView tvContinue;
     private AppCompatTextView tvQuestion;
-    private String question = "What is your current body temperature in degree Fahrenheit?*";
+    private String question = "Are your symptoms worsening rapidly?";
 
-    public Question3TempFragment() {
+    public Question6RapidlyFragment() {
 
     }
 
@@ -70,6 +72,9 @@ public class Question3TempFragment extends Fragment {
                     Activity activity = getActivity();
                     if (activity instanceof SurveyActivity) {
                         SurveyActivity myActivity = (SurveyActivity) activity;
+                        if(mAdapter.getCheckedPosition()==0){
+                            resultCorona = resultCorona + 1;
+                        }
                         myActivity.nextStep(1);
                     }
                 }
@@ -99,15 +104,15 @@ public class Question3TempFragment extends Fragment {
 
         ArrayList<Slots> array = new ArrayList<>();
 
-        Slots slots1 = new Slots("Normal 96 - 98.6 F", false);
-        Slots slots2 = new Slots("Fever 98.6 - 102 F", false);
-        Slots slots3 = new Slots("High Fever > 102 F", false);
+        Slots slots1 = new Slots("Yes", false);
+        Slots slots2 = new Slots("No", false);
+//        Slots slots3 = new Slots("High Fever > 102 F", false);
 //        Slots slots4 = new Slots("Close contact with confirmed COVID-19 case in last 14 days", false);
 
 
         array.add(slots1);
         array.add(slots2);
-        array.add(slots3);
+//        array.add(slots3);
 //        array.add(slots4);
 
 

@@ -70,11 +70,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_normal"
         android:background="@drawable/drawable_common_button"
+        android:drawableRight="@drawable/ic_continue"
         android:gravity="center"
-        android:minHeight="50dp"
-        android:text="Continue"
-        android:textAlignment="center"
+        android:padding="@dimen/spacing_normal"
+        android:text="CONTINUE"
         android:textColor="@color/white"
         android:textSize="@dimen/font_large" />
 </RelativeLayout>

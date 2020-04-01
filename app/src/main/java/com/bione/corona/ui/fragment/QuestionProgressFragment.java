@@ -22,20 +22,20 @@ import com.bione.corona.ui.fragment.adapter.RadioAdapter;
 
 import java.util.ArrayList;
 
-public class Question7HistoryFragment extends Fragment {
+public class QuestionProgressFragment extends Fragment {
 
 
     private View rootView;
-    private CheckBoxAdapter mAdapter;
+    private RadioAdapter mAdapter;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private Context mContext;
     private String type = "Past";
     private AppCompatTextView tvContinue;
     private AppCompatTextView tvQuestion;
-    private String question = "Do you have a history of any of these medical conditions?*";
+    private String question = "How have your symptoms progressed over the last 48 hrs?*";
 
-    public Question7HistoryFragment() {
+    public QuestionProgressFragment() {
 
     }
 
@@ -100,28 +100,28 @@ public class Question7HistoryFragment extends Fragment {
 
         ArrayList<Slots> array = new ArrayList<>();
 
-        Slots slots1 = new Slots("Diabetes", false);
-        Slots slots2 = new Slots("High Blood Pressure", false);
-        Slots slots3 = new Slots("Heart Disease", false);
-        Slots slots4 = new Slots("Kidney Disease", false);
-        Slots slots5 = new Slots("Lung Disease", false);
-        Slots slots6 = new Slots("Stroke", false);
-        Slots slots7 = new Slots("Reduce Immunity", false);
-        Slots slots8 = new Slots("None of these", false);
+        Slots slots1 = new Slots("Improved", false);
+        Slots slots2 = new Slots("No change", false);
+        Slots slots3 = new Slots("Worsened", false);
+        Slots slots4 = new Slots("Worsened considerably", false);
+//        Slots slots5 = new Slots("Lung Disease", false);
+//        Slots slots6 = new Slots("Stroke", false);
+//        Slots slots7 = new Slots("Reduce Immunity", false);
+//        Slots slots8 = new Slots("None of these", false);
 
 
         array.add(slots1);
         array.add(slots2);
         array.add(slots3);
         array.add(slots4);
-        array.add(slots5);
-        array.add(slots6);
-        array.add(slots7);
-        array.add(slots8);
+//        array.add(slots5);
+//        array.add(slots6);
+//        array.add(slots7);
+//        array.add(slots8);
 
 
         // specify an adapter (see also next example)
-        mAdapter = new CheckBoxAdapter(array);
+        mAdapter = new RadioAdapter(array);
         recyclerView.setAdapter(mAdapter);
 
 //        // specify an adapter (see also next example)

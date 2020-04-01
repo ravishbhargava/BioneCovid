@@ -2,6 +2,7 @@ package com.bione.corona.ui.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,28 +17,26 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bione.corona.R;
 import com.bione.corona.model.Slots;
+import com.bione.corona.ui.ResulActivity;
 import com.bione.corona.ui.SurveyActivity;
-import com.bione.corona.ui.fragment.adapter.CheckBoxAdapter;
-import com.bione.corona.utils.Log;
+import com.bione.corona.ui.fragment.adapter.RadioAdapter;
 
 import java.util.ArrayList;
 
-import static com.bione.corona.ui.SurveyActivity.resultCorona;
-
-public class Question4SymptomsFragment extends Fragment {
+public class Question10TravelFragment extends Fragment {
 
 
     private View rootView;
-    private CheckBoxAdapter mAdapter;
+    private RadioAdapter mAdapter;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private Context mContext;
     private String type = "Past";
     private AppCompatTextView tvContinue;
     private AppCompatTextView tvQuestion;
-    private String question = "Do you have any of the following symptoms? Please select symptoms that are not related to any chronic disease you may be subject to";
+    private String question = "Have you had close contact with a person with suspected COVID-19 infection in the last 14 days?";
 
-    public Question4SymptomsFragment() {
+    public Question10TravelFragment() {
 
     }
 
@@ -73,26 +72,9 @@ public class Question4SymptomsFragment extends Fragment {
                     Activity activity = getActivity();
                     if (activity instanceof SurveyActivity) {
                         SurveyActivity myActivity = (SurveyActivity) activity;
-                        ArrayList<Slots> arrayList = mAdapter.getSlots();
-                        Log.d("slotss ----- ", "arrray : " + mAdapter.getSlots());
-//                        for (int i = 0; i < arrayList.size(); i++) {
-//                            if(i==0)
-//                        }
-                        if (arrayList.get(0).isSelected() && arrayList.get(1).isSelected()) {
-                            myActivity.nextStep(1);
-                        } else if (arrayList.get(0).isSelected() && arrayList.get(2).isSelected()) {
-                            myActivity.nextStep(1);
-                        } else if (arrayList.get(1).isSelected() && arrayList.get(2).isSelected()) {
-                            myActivity.nextStep(2);
-                        } else if (arrayList.get(0).isSelected()) {
-                            myActivity.nextStep(1);
-                        } else if (arrayList.get(1).isSelected()) {
-                            myActivity.nextStep(2);
-                        } else if (arrayList.get(2).isSelected()) {
-                            myActivity.nextStep(2);
-                        } else {
-                            myActivity.nextStep(5);
-                        }
+                        Intent intent = new Intent(myActivity, ResulActivity.class);
+                        startActivity(intent);
+                        myActivity.finish();
                     }
                 }
             });
@@ -121,20 +103,22 @@ public class Question4SymptomsFragment extends Fragment {
 
         ArrayList<Slots> array = new ArrayList<>();
 
-        Slots slots1 = new Slots("Fever", false);
-        Slots slots2 = new Slots("Cough", false);
-        Slots slots3 = new Slots("Shortness of Breath", false);
-        Slots slots4 = new Slots("None of these", false);
+        Slots slots1 = new Slots("I live or have provided care to a person suspected or having COVID-19", false);
+        Slots slots2 = new Slots("I have shared the same closed environment (e.g., classroom, workspace, gym) or traveled in close proximity (1m) with a person suspected of having COVID-19", false);
+        Slots slots3 = new Slots("I had face-to-face contact for longer than 15 minutes with a person suspected of having COVD-19", false);
+        Slots slots4 = new Slots("Other", false);
+        Slots slots5 = new Slots("None of the above", false);
 
 
         array.add(slots1);
         array.add(slots2);
         array.add(slots3);
         array.add(slots4);
+        array.add(slots5);
 
 
         // specify an adapter (see also next example)
-        mAdapter = new CheckBoxAdapter(array);
+        mAdapter = new RadioAdapter(array);
         recyclerView.setAdapter(mAdapter);
 
 //        // specify an adapter (see also next example)
