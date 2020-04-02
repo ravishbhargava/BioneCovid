@@ -21,7 +21,7 @@ import com.bione.corona.ui.fragment.adapter.RadioAdapter;
 
 import java.util.ArrayList;
 
-public class Question2GenderFragment extends Fragment {
+public class Question1GenderFragment extends Fragment {
 
 
     private View rootView;
@@ -34,7 +34,7 @@ public class Question2GenderFragment extends Fragment {
     private AppCompatTextView tvQuestion;
     private String question = "What is your gender?*";
 
-    public Question2GenderFragment() {
+    public Question1GenderFragment() {
 
     }
 

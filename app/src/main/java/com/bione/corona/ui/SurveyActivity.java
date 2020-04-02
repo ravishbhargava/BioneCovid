@@ -27,6 +27,7 @@ public class SurveyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey);
 
+        resultCorona = 0;
         ivBack = findViewById(R.id.ivBack);
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +45,7 @@ public class SurveyActivity extends AppCompatActivity {
 
 
         // setting viewPager's pages
-        final SurveyAdapter adapter = new SurveyAdapter(getSupportFragmentManager(), 10);
+        final SurveyAdapter adapter = new SurveyAdapter(getSupportFragmentManager(), 11);
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
 

@@ -83,6 +83,10 @@ public class SplashActivity extends AppCompatActivity implements LocationListene
                             Log.i("location-----", "   --- lat  " + location.getLatitude());
                             Log.i("location-----", "   --- long  " + location.getLongitude());
                             mTracker.setLocation("lat: " + location.getLatitude() + "lng: " + location.getLongitude());
+                            Bundle bundle = new Bundle();
+                            bundle.putString("lat", "" + location.getLatitude());
+                            bundle.putString("long", "" + location.getLongitude());
+                            mFirebaseAnalytics.logEvent("Location", bundle);
                         } else {
                             Log.i("nullll-----", "   --- loc  ");
                         }

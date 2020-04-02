@@ -8,12 +8,13 @@ import com.google.android.gms.analytics.Tracker;
 
 import java.lang.ref.WeakReference;
 
+import io.github.inflationx.calligraphy3.CalligraphyConfig;
+import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
+import io.github.inflationx.viewpump.ViewPump;
+
 //import io.paperdb.Paper;
 //import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
-//import io.github.inflationx.calligraphy3.CalligraphyConfig;
-//import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
-//import io.github.inflationx.viewpump.ViewPump;
 
 
 /**
@@ -48,13 +49,13 @@ public class MyApplication extends Application {
 
         sAnalytics = GoogleAnalytics.getInstance(this);
 
-//        ViewPump.init(ViewPump.builder()
-//                .addInterceptor(new CalligraphyInterceptor(
-//                        new CalligraphyConfig.Builder()
-//                                .setDefaultFontPath("fonts/OpenSans-Regular.ttf")
-//                                .setFontAttrId(R.attr.fontPath)
-//                                .build()))
-//                .build());
+        ViewPump.init(ViewPump.builder()
+                .addInterceptor(new CalligraphyInterceptor(
+                        new CalligraphyConfig.Builder()
+                                .setDefaultFontPath("fonts/Poppins-Black.ttf")
+                                .setFontAttrId(R.attr.fontPath)
+                                .build()))
+                .build());
 
 //        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
 //                .setDefaultFontPath("fonts/OpenSans-Regular.ttf")

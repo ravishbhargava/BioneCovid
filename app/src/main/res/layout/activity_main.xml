@@ -19,6 +19,7 @@
         android:layout_below="@id/provide"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
+
         android:src="@mipmap/bione_logo" />
 
 
@@ -49,6 +50,7 @@
             android:gravity="center"
             android:padding="@dimen/spacing_normal"
             android:text="SIGN UP"
+            android:textAppearance="@style/TextAppearance.FontPath.bold"
             android:textColor="@color/white"
             android:textSize="@dimen/font_large" />
 

@@ -17,8 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bione.corona.R;
 import com.bione.corona.model.Slots;
-import com.bione.corona.ui.DashBoardActivity;
-import com.bione.corona.ui.ResulActivity;
+import com.bione.corona.ui.ResultActivity;
 import com.bione.corona.ui.SurveyActivity;
 import com.bione.corona.ui.fragment.adapter.RadioAdapter;
 import com.bione.corona.utils.Log;
@@ -79,7 +78,7 @@ public class Question8CoughingFragment extends Fragment {
                         SurveyActivity myActivity = (SurveyActivity) activity;
                         Log.d("resultCorona", ": " + resultCorona);
                         if (resultCorona > 0) {
-                            Intent intent = new Intent(myActivity, ResulActivity.class);
+                            Intent intent = new Intent(myActivity, ResultActivity.class);
                             startActivity(intent);
                             myActivity.finish();
                         } else {

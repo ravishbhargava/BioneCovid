@@ -19,7 +19,7 @@ import androidx.fragment.app.Fragment;
 import com.bione.corona.R;
 import com.bione.corona.ui.SurveyActivity;
 
-public class Question1AgeFragment extends Fragment {
+public class Question2AgeFragment extends Fragment {
 
 
     private View rootView;
@@ -27,7 +27,7 @@ public class Question1AgeFragment extends Fragment {
     private AppCompatTextView tvContinue;
 
 
-    public Question1AgeFragment() {
+    public Question2AgeFragment() {
 
     }
 

@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bione.corona.R;
 import com.bione.corona.model.Slots;
-import com.bione.corona.ui.ResulActivity;
+import com.bione.corona.ui.ResultActivity;
 import com.bione.corona.ui.SurveyActivity;
 import com.bione.corona.ui.fragment.adapter.RadioAdapter;
 
@@ -72,7 +72,7 @@ public class Question10TravelFragment extends Fragment {
                     Activity activity = getActivity();
                     if (activity instanceof SurveyActivity) {
                         SurveyActivity myActivity = (SurveyActivity) activity;
-                        Intent intent = new Intent(myActivity, ResulActivity.class);
+                        Intent intent = new Intent(myActivity, ResultActivity.class);
                         startActivity(intent);
                         myActivity.finish();
                     }

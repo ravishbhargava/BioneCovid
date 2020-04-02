@@ -52,7 +52,7 @@
             android:windowSoftInputMode="stateHidden" />
 
         <activity
-            android:name=".ui.ResulActivity"
+            android:name=".ui.ResultActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
 

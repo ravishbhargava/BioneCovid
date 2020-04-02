@@ -17,25 +17,24 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bione.corona.R;
 import com.bione.corona.model.Slots;
 import com.bione.corona.ui.SurveyActivity;
-import com.bione.corona.ui.fragment.adapter.CheckBoxAdapter;
 import com.bione.corona.ui.fragment.adapter.RadioAdapter;
 
 import java.util.ArrayList;
 
-public class Question3HistoryFragment extends Fragment {
+public class Question0WhoFragment extends Fragment {
 
 
     private View rootView;
-    private CheckBoxAdapter mAdapter;
+    private RadioAdapter mAdapter;
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private Context mContext;
     private String type = "Past";
     private AppCompatTextView tvContinue;
     private AppCompatTextView tvQuestion;
-    private String question = "Do you have a history of any of these medical conditions?*";
+    private String question = "For whom are you taking the test?";
 
-    public Question3HistoryFragment() {
+    public Question0WhoFragment() {
 
     }
 
@@ -66,7 +65,6 @@ public class Question3HistoryFragment extends Fragment {
             tvContinue.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
 
                     Activity activity = getActivity();
                     if (activity instanceof SurveyActivity) {
@@ -100,15 +98,11 @@ public class Question3HistoryFragment extends Fragment {
 
         ArrayList<Slots> array = new ArrayList<>();
 
-        Slots slots1 = new Slots("Diabetes", false);
-        Slots slots2 = new Slots("High Blood Pressure", false);
-        Slots slots3 = new Slots("Heart Disease", false);
-        Slots slots4 = new Slots("Kidney Disease", false);
-        Slots slots5 = new Slots("Lung Disease", false);
-        Slots slots6 = new Slots("Stroke", false);
-        Slots slots7 = new Slots("Reduce Immunity", false);
-        Slots slots8 = new Slots("Hypertension", false);
-        Slots slots9 = new Slots("None of these", false);
+        Slots slots1 = new Slots("For yourself", false);
+        Slots slots2 = new Slots("Parent", false);
+        Slots slots3 = new Slots("Spouse", false);
+        Slots slots4 = new Slots("Child", false);
+        Slots slots5 = new Slots("Someone else", false);
 
 
         array.add(slots1);
@@ -116,14 +110,10 @@ public class Question3HistoryFragment extends Fragment {
         array.add(slots3);
         array.add(slots4);
         array.add(slots5);
-        array.add(slots6);
-        array.add(slots7);
-        array.add(slots8);
-        array.add(slots9);
 
 
         // specify an adapter (see also next example)
-        mAdapter = new CheckBoxAdapter(array);
+        mAdapter = new RadioAdapter(array);
         recyclerView.setAdapter(mAdapter);
 
 //        // specify an adapter (see also next example)
