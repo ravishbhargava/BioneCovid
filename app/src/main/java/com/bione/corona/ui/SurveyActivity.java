@@ -19,7 +19,7 @@ public class SurveyActivity extends BaseActivity {
     private CustomViewPager viewPager;
 
     private ProgressBar progressBar;
-    private AppCompatImageView ivBack;
+    //    private AppCompatImageView ivBack;
     public static int resultCorona = 0;
 
     @Override
@@ -28,16 +28,17 @@ public class SurveyActivity extends BaseActivity {
         setContentView(R.layout.activity_survey);
 
         resultCorona = 0;
-        ivBack = findViewById(R.id.ivBack);
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+//        ivBack = findViewById(R.id.ivBack);
+//        ivBack.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                finish();
+//            }
+//        });
 
         progressBar = findViewById(R.id.progressBar);
-
+        progressBar.getProgressDrawable().setColorFilter(
+                getResources().getColor(R.color.colorPrimary), android.graphics.PorterDuff.Mode.SRC_IN);
 
         viewPager = findViewById(R.id.viewpager);
         viewPager.setOffscreenPageLimit(2);

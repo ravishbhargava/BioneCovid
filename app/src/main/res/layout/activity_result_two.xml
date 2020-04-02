@@ -32,6 +32,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="Result"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
                     android:textColor="@color/black"
                     android:textSize="@dimen/font_large" />
 
@@ -41,9 +42,22 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_gravity="center"
-                    android:padding="@dimen/spacing_normal"
+                    android:text="@string/quarantine"
+                    android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/font_small" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+
                     android:text="@string/quarantine_stay_home_and_monitor_your"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
                     android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -66,6 +80,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/string_result2_yoga_bottom_text"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath"
                     android:textSize="@dimen/font_xsmall"
                     android:visibility="visible" />
 
@@ -78,6 +93,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/based_on_your_coronavirus_risk_scan_bione_team_of_experts_recommends"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
                     android:textSize="@dimen/font_small" />
 
             </LinearLayout>
@@ -110,6 +126,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/covid_19_diagnostic_home_test_kit"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
                     android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -121,10 +138,12 @@
                     android:background="@drawable/drawable_common_button"
                     android:drawableRight="@drawable/ic_continue"
                     android:gravity="center"
+                    android:onClick="openWebsite"
                     android:padding="@dimen/spacing_normal"
                     android:text="BUY NOW"
+                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/font_large" />
+                    android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatTextView
 
@@ -132,9 +151,11 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_gravity="center"
+                    android:onClick="openWebsite"
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/string_result2_yoga_kit_bottom"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath"
                     android:textSize="@dimen/font_xsmall" />
 
 
@@ -168,6 +189,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/covid_19_diagnostic_home_test_kit"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
                     android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -179,10 +201,12 @@
                     android:background="@drawable/drawable_common_button"
                     android:drawableRight="@drawable/ic_continue"
                     android:gravity="center"
+                    android:onClick="openWebsite"
                     android:padding="@dimen/spacing_normal"
                     android:text="BUY NOW"
+                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/font_large" />
+                    android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatTextView
 
@@ -190,13 +214,16 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:layout_gravity="center"
+                    android:onClick="openWebsite"
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/string_result1_bottom2"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath"
                     android:textSize="@dimen/font_xsmall" />
 
 
             </LinearLayout>
+
             <androidx.appcompat.widget.AppCompatTextView
 
                 android:layout_width="wrap_content"
@@ -206,6 +233,7 @@
                 android:padding="@dimen/spacing_normal"
                 android:text="@string/string_result_bottom_link"
                 android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.FontPath"
                 android:textSize="@dimen/font_xsmall" />
 
 

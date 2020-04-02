@@ -2,6 +2,7 @@ package com.bione.corona.network;
 
 
 import com.bione.corona.model.CommonResponse;
+import com.bione.corona.model.getCoronaResults.Example;
 
 import java.util.Map;
 
@@ -50,6 +51,9 @@ public interface ApiInterface {
 
     @GET("/api/unknown")
     Call<CommonResponse> doGetListResources();
+
+    @GET("/data.json")
+    Call<Example> getCoronaResults();
 
 
 

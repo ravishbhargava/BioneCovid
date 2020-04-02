@@ -67,6 +67,24 @@ public final class RestClient {
     }
 
     /**
+     * Gets api interface.
+     *
+     * @return object of ApiInterface
+     */
+    public static ApiInterface getApiInterface2() {
+        if (retrofit == null) {
+            retrofit = new Retrofit.Builder()
+                    .baseUrl("https://api.covid19india.org/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .client(httpClient().build())
+//                    .client(secureConnection().build())
+                    .build();
+        }
+        return retrofit.create(ApiInterface.class);
+    }
+
+
+    /**
      * @return object of OkHttpClient.Builder
      */
     private static OkHttpClient.Builder httpClient() {

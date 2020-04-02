@@ -5,7 +5,7 @@
     android:background="@color/light_white"
     android:orientation="vertical">
 
-    <include layout="@layout/include_header" />
+<!--    <include layout="@layout/include_header" />-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,7 +18,19 @@
             android:gravity="center_horizontal"
             android:orientation="vertical"
             android:padding="@dimen/spacing_normal">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:padding="@dimen/spacing_normal"
+                android:text="@string/coronavirus"
 
+                android:textAppearance="@style/TextAppearance.FontPath.bold"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_xlarge" />
 
             <androidx.appcompat.widget.AppCompatTextView
 
@@ -49,13 +61,14 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
-
+                        android:id="@+id/tvConfirmedCases"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_small"
                         android:gravity="center"
-                        android:text="1444"
+                        android:text="0"
                         android:textAppearance="@style/TextAppearance.FontPath.semiBold"
+                        android:textColor="#3D44F0"
 
                         android:textSize="@dimen/font_dash" />
 
@@ -80,14 +93,14 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
-
+                        android:id="@+id/tvNewCases"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_small"
                         android:gravity="center"
-                        android:text="1444"
+                        android:text="0"
                         android:textAppearance="@style/TextAppearance.FontPath.semiBold"
-
+                        android:textColor="#ED9F2D"
                         android:textSize="@dimen/font_dash" />
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -120,13 +133,14 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
-
+                        android:id="@+id/tvRecoveredCases"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_small"
                         android:gravity="center"
-                        android:text="1444"
+                        android:text="0"
                         android:textAppearance="@style/TextAppearance.FontPath.semiBold"
+                        android:textColor="#22A75E"
                         android:textSize="@dimen/font_dash" />
 
                     <androidx.appcompat.widget.AppCompatTextView
@@ -151,13 +165,14 @@
                     android:orientation="vertical">
 
                     <androidx.appcompat.widget.AppCompatTextView
-
+                        android:id="@+id/tvDeceased"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/spacing_small"
                         android:gravity="center"
-                        android:text="1444"
+                        android:text="0"
                         android:textAppearance="@style/TextAppearance.FontPath.semiBold"
+                        android:textColor="#9B9B9B"
 
                         android:textSize="@dimen/font_dash" />
 

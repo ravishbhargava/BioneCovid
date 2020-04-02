@@ -44,6 +44,8 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/consult_health_care_provider_navoid_all_contact"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -66,6 +68,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/string_result1_consult_doctor"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath"
                     android:textSize="@dimen/font_xsmall"
                     android:visibility="visible" />
 
@@ -78,6 +81,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/based_on_your_coronavirus_risk_scan_bione_team_of_experts_recommends"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
                     android:textSize="@dimen/font_small" />
 
             </LinearLayout>
@@ -99,6 +103,7 @@
                     android:layout_centerVertical="true"
                     android:layout_margin="@dimen/spacing_normal"
                     android:src="@mipmap/ic_microbiome"
+
                     android:visibility="visible" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -110,6 +115,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/my_microbiome_kit"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
                     android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -121,10 +127,12 @@
                     android:background="@drawable/drawable_common_button"
                     android:drawableRight="@drawable/ic_continue"
                     android:gravity="center"
+                    android:onClick="openWebsite"
                     android:padding="@dimen/spacing_normal"
                     android:text="BUY NOW"
+                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/font_large" />
+                    android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatTextView
 
@@ -135,6 +143,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/string_result1_buynow_bottom"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath"
                     android:textSize="@dimen/font_xsmall" />
 
 
@@ -168,6 +177,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/covid_19_diagnostic_home_test_kit"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
                     android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -179,10 +189,12 @@
                     android:background="@drawable/drawable_common_button"
                     android:drawableRight="@drawable/ic_continue"
                     android:gravity="center"
+                    android:onClick="openWebsite"
                     android:padding="@dimen/spacing_normal"
                     android:text="BUY NOW"
+                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/font_large" />
+                    android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatTextView
 
@@ -193,6 +205,7 @@
                     android:padding="@dimen/spacing_normal"
                     android:text="@string/string_result1_bottom2"
                     android:textAlignment="center"
+                    android:textAppearance="@style/TextAppearance.FontPath"
                     android:textSize="@dimen/font_xsmall" />
 
 

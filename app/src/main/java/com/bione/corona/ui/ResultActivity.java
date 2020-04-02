@@ -1,6 +1,9 @@
 package com.bione.corona.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 
@@ -31,5 +34,9 @@ public class ResultActivity extends BaseActivity {
             setContentView(R.layout.activity_result_three);
         }
 
+    }
+    public void openWebsite(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+        startActivity(browserIntent);
     }
 }
