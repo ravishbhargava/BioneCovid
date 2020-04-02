@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,6 +19,7 @@ import com.bione.corona.R;
 import com.bione.corona.model.Slots;
 import com.bione.corona.ui.SurveyActivity;
 import com.bione.corona.ui.fragment.adapter.RadioAdapter;
+import com.bione.corona.utils.ValidationUtil;
 
 import java.util.ArrayList;
 
@@ -65,11 +67,14 @@ public class Question0WhoFragment extends Fragment {
             tvContinue.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    Activity activity = getActivity();
-                    if (activity instanceof SurveyActivity) {
-                        SurveyActivity myActivity = (SurveyActivity) activity;
-                        myActivity.nextStep(1);
+                    if (mAdapter.getCheckedPosition() >= 0) {
+                        Activity activity = getActivity();
+                        if (activity instanceof SurveyActivity) {
+                            SurveyActivity myActivity = (SurveyActivity) activity;
+                            myActivity.nextStep(1);
+                        }
+                    } else {
+                        ValidationUtil.showToast(mContext);
                     }
                 }
             });

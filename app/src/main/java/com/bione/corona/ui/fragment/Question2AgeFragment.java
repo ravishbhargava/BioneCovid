@@ -12,12 +12,15 @@ import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 
 import com.bione.corona.R;
 import com.bione.corona.ui.SurveyActivity;
+import com.bione.corona.utils.KeyboardUtil;
+import com.bione.corona.utils.ValidationUtil;
 
 public class Question2AgeFragment extends Fragment {
 
@@ -25,7 +28,7 @@ public class Question2AgeFragment extends Fragment {
     private View rootView;
     private Context mContext;
     private AppCompatTextView tvContinue;
-
+    private AppCompatEditText etAge;
 
     public Question2AgeFragment() {
 
@@ -49,19 +52,23 @@ public class Question2AgeFragment extends Fragment {
         if (rootView == null) {
             rootView = inflater.inflate(R.layout.fragment_question_one, container, false);
             tvContinue = rootView.findViewById(R.id.tvContinue);
+            etAge = rootView.findViewById(R.id.etAge);
 
             tvContinue.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Activity activity = getActivity();
-                    if (activity instanceof SurveyActivity) {
-                        SurveyActivity myActivity = (SurveyActivity) activity;
-                        myActivity.nextStep(1);
+                    KeyboardUtil.hideKeyboard(getActivity());
+                    if (!etAge.getText().toString().equals("")) {
+                        Activity activity = getActivity();
+                        if (activity instanceof SurveyActivity) {
+                            SurveyActivity myActivity = (SurveyActivity) activity;
+                            myActivity.nextStep(1);
+                        }
+                    } else {
+                        ValidationUtil.showToast(mContext, "Please enter age.");
                     }
                 }
             });
-
-
 
 
         }

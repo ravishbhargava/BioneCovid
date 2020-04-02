@@ -1,7 +1,11 @@
 package com.bione.corona.utils;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Patterns;
+import android.widget.Toast;
+
+import com.bione.corona.R;
 
 /**
  * Developer: Bione
@@ -55,6 +59,14 @@ public final class ValidationUtil {
             return false;
         }
         return true;
+    }
+
+    public static void showToast(Context mContext) {
+        Toast.makeText(mContext, mContext.getResources().getString(R.string.string_please_select_an_option), Toast.LENGTH_SHORT).show();
+    }
+
+    public static void showToast(final Context mContext, final String msg) {
+        Toast.makeText(mContext, msg, Toast.LENGTH_SHORT).show();
     }
 
 }

@@ -19,6 +19,7 @@ import com.bione.corona.model.Slots;
 import com.bione.corona.ui.SurveyActivity;
 import com.bione.corona.ui.fragment.adapter.CheckBoxAdapter;
 import com.bione.corona.utils.Log;
+import com.bione.corona.utils.ValidationUtil;
 
 import java.util.ArrayList;
 
@@ -69,30 +70,36 @@ public class Question4SymptomsFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-
-                    Activity activity = getActivity();
-                    if (activity instanceof SurveyActivity) {
-                        SurveyActivity myActivity = (SurveyActivity) activity;
-                        ArrayList<Slots> arrayList = mAdapter.getSlots();
-                        Log.d("slotss ----- ", "arrray : " + mAdapter.getSlots());
-//                        for (int i = 0; i < arrayList.size(); i++) {
-//                            if(i==0)
-//                        }
-                        if (arrayList.get(0).isSelected() && arrayList.get(1).isSelected()) {
-                            myActivity.nextStep(1);
-                        } else if (arrayList.get(0).isSelected() && arrayList.get(2).isSelected()) {
-                            myActivity.nextStep(1);
-                        } else if (arrayList.get(1).isSelected() && arrayList.get(2).isSelected()) {
-                            myActivity.nextStep(2);
-                        } else if (arrayList.get(0).isSelected()) {
-                            myActivity.nextStep(1);
-                        } else if (arrayList.get(1).isSelected()) {
-                            myActivity.nextStep(2);
-                        } else if (arrayList.get(2).isSelected()) {
-                            myActivity.nextStep(2);
-                        } else {
-                            myActivity.nextStep(5);
+                    ArrayList<Slots> selectedArray = new ArrayList<>();
+                    for (int s = 0; s < mAdapter.getSlots().size(); s++) {
+                        if (mAdapter.getSlots().get(s).isSelected()) {
+                            selectedArray.add(mAdapter.getSlots().get(s));
                         }
+                    }
+                    if (selectedArray.size() > 0) {
+                        Activity activity = getActivity();
+                        if (activity instanceof SurveyActivity) {
+                            SurveyActivity myActivity = (SurveyActivity) activity;
+                            ArrayList<Slots> arrayList = mAdapter.getSlots();
+
+                            if (arrayList.get(0).isSelected() && arrayList.get(1).isSelected()) {
+                                myActivity.nextStep(1);
+                            } else if (arrayList.get(0).isSelected() && arrayList.get(2).isSelected()) {
+                                myActivity.nextStep(1);
+                            } else if (arrayList.get(1).isSelected() && arrayList.get(2).isSelected()) {
+                                myActivity.nextStep(2);
+                            } else if (arrayList.get(0).isSelected()) {
+                                myActivity.nextStep(1);
+                            } else if (arrayList.get(1).isSelected()) {
+                                myActivity.nextStep(2);
+                            } else if (arrayList.get(2).isSelected()) {
+                                myActivity.nextStep(2);
+                            } else {
+                                myActivity.nextStep(5);
+                            }
+                        }
+                    } else {
+                        ValidationUtil.showToast(mContext);
                     }
                 }
             });

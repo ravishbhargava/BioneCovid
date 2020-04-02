@@ -18,6 +18,7 @@ import com.bione.corona.R;
 import com.bione.corona.model.Slots;
 import com.bione.corona.ui.SurveyActivity;
 import com.bione.corona.ui.fragment.adapter.RadioAdapter;
+import com.bione.corona.utils.ValidationUtil;
 
 import java.util.ArrayList;
 
@@ -68,14 +69,17 @@ public class Question7BreathingFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-
-                    Activity activity = getActivity();
-                    if (activity instanceof SurveyActivity) {
-                        SurveyActivity myActivity = (SurveyActivity) activity;
-                        if(mAdapter.getCheckedPosition()==0){
-                            resultCorona = resultCorona + 1;
+                    if (mAdapter.getCheckedPosition() >= 0) {
+                        Activity activity = getActivity();
+                        if (activity instanceof SurveyActivity) {
+                            SurveyActivity myActivity = (SurveyActivity) activity;
+                            if (mAdapter.getCheckedPosition() == 0) {
+                                resultCorona = resultCorona + 1;
+                            }
+                            myActivity.nextStep(1);
                         }
-                        myActivity.nextStep(1);
+                    } else {
+                        ValidationUtil.showToast(mContext);
                     }
                 }
             });

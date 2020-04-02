@@ -20,6 +20,7 @@ import com.bione.corona.model.Slots;
 import com.bione.corona.ui.ResultActivity;
 import com.bione.corona.ui.SurveyActivity;
 import com.bione.corona.ui.fragment.adapter.RadioAdapter;
+import com.bione.corona.utils.ValidationUtil;
 
 import java.util.ArrayList;
 
@@ -68,13 +69,21 @@ public class Question10TravelFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-
-                    Activity activity = getActivity();
-                    if (activity instanceof SurveyActivity) {
-                        SurveyActivity myActivity = (SurveyActivity) activity;
-                        Intent intent = new Intent(myActivity, ResultActivity.class);
-                        startActivity(intent);
-                        myActivity.finish();
+                    if (mAdapter.getCheckedPosition() >= 0) {
+                        Activity activity = getActivity();
+                        if (activity instanceof SurveyActivity) {
+                            SurveyActivity myActivity = (SurveyActivity) activity;
+                            Intent intent = new Intent(myActivity, ResultActivity.class);
+                            if (mAdapter.getCheckedPosition() == 0 || mAdapter.getCheckedPosition() == 1 || mAdapter.getCheckedPosition() == 2) {
+                                intent.putExtra("type", "2");
+                            } else {
+                                intent.putExtra("type", "1");
+                            }
+                            startActivity(intent);
+                            myActivity.finish();
+                        }
+                    } else {
+                        ValidationUtil.showToast(mContext);
                     }
                 }
             });

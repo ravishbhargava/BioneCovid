@@ -21,6 +21,7 @@ import com.bione.corona.ui.ResultActivity;
 import com.bione.corona.ui.SurveyActivity;
 import com.bione.corona.ui.fragment.adapter.RadioAdapter;
 import com.bione.corona.utils.Log;
+import com.bione.corona.utils.ValidationUtil;
 
 import java.util.ArrayList;
 
@@ -70,21 +71,27 @@ public class Question8CoughingFragment extends Fragment {
             tvContinue.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (mAdapter.getCheckedPosition() == 0) {
-                        resultCorona = resultCorona + 1;
-                    }
-                    Activity activity = getActivity();
-                    if (activity instanceof SurveyActivity) {
-                        SurveyActivity myActivity = (SurveyActivity) activity;
-                        Log.d("resultCorona", ": " + resultCorona);
-                        if (resultCorona > 0) {
-                            Intent intent = new Intent(myActivity, ResultActivity.class);
-                            startActivity(intent);
-                            myActivity.finish();
-                        } else {
-                            myActivity.nextStep(1);
-                        }
 
+                    if (mAdapter.getCheckedPosition() >= 0) {
+                        if (mAdapter.getCheckedPosition() == 0) {
+                            resultCorona = resultCorona + 1;
+                        }
+                        Activity activity = getActivity();
+                        if (activity instanceof SurveyActivity) {
+                            SurveyActivity myActivity = (SurveyActivity) activity;
+                            Log.d("resultCorona", ": " + resultCorona);
+                            if (resultCorona > 0) {
+                                Intent intent = new Intent(myActivity, ResultActivity.class);
+                                intent.putExtra("type", "3");
+                                startActivity(intent);
+                                myActivity.finish();
+                            } else {
+                                myActivity.nextStep(1);
+                            }
+
+                        }
+                    } else {
+                        ValidationUtil.showToast(mContext);
                     }
                 }
             });

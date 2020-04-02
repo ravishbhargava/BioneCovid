@@ -19,6 +19,7 @@ import com.bione.corona.R;
 import com.bione.corona.model.Slots;
 import com.bione.corona.ui.SurveyActivity;
 import com.bione.corona.ui.fragment.adapter.CheckBoxAdapter;
+import com.bione.corona.utils.ValidationUtil;
 
 import java.util.ArrayList;
 
@@ -67,11 +68,20 @@ public class Question9SymptomsFragment extends Fragment {
                 @Override
                 public void onClick(View view) {
 
-
-                    Activity activity = getActivity();
-                    if (activity instanceof SurveyActivity) {
-                        SurveyActivity myActivity = (SurveyActivity) activity;
-                        myActivity.nextStep(1);
+                    ArrayList<Slots> selectedArray = new ArrayList<>();
+                    for (int s = 0; s < mAdapter.getSlots().size(); s++) {
+                        if (mAdapter.getSlots().get(s).isSelected()) {
+                            selectedArray.add(mAdapter.getSlots().get(s));
+                        }
+                    }
+                    if (selectedArray.size() > 0) {
+                        Activity activity = getActivity();
+                        if (activity instanceof SurveyActivity) {
+                            SurveyActivity myActivity = (SurveyActivity) activity;
+                            myActivity.nextStep(1);
+                        }
+                    } else {
+                        ValidationUtil.showToast(mContext);
                     }
                 }
             });
