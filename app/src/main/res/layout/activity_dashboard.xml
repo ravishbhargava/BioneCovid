@@ -27,8 +27,9 @@
                 android:gravity="center"
                 android:padding="@dimen/spacing_normal"
                 android:text="Live Tracker"
+                android:textAppearance="@style/TextAppearance.FontPath"
                 android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/font_xxlarge" />
+                android:textSize="@dimen/font_large" />
 
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
@@ -54,16 +55,17 @@
                         android:layout_marginTop="@dimen/spacing_small"
                         android:gravity="center"
                         android:text="1444"
+                        android:textAppearance="@style/TextAppearance.FontPath.semiBold"
 
-                        android:textSize="@dimen/font_xxxlarge" />
+                        android:textSize="@dimen/font_dash" />
 
                     <androidx.appcompat.widget.AppCompatTextView
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_small"
                         android:gravity="center"
                         android:text="Confirmed Cases"
+                        android:textAppearance="@style/TextAppearance.FontPath"
                         android:textSize="@dimen/font_large" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -84,16 +86,17 @@
                         android:layout_marginTop="@dimen/spacing_small"
                         android:gravity="center"
                         android:text="1444"
+                        android:textAppearance="@style/TextAppearance.FontPath.semiBold"
 
-                        android:textSize="@dimen/font_xxxlarge" />
+                        android:textSize="@dimen/font_dash" />
 
                     <androidx.appcompat.widget.AppCompatTextView
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_small"
                         android:gravity="center"
                         android:text="New Cases Today"
+                        android:textAppearance="@style/TextAppearance.FontPath"
                         android:textSize="@dimen/font_large" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -123,15 +126,17 @@
                         android:layout_marginTop="@dimen/spacing_small"
                         android:gravity="center"
                         android:text="1444"
-                        android:textSize="@dimen/font_xxxlarge" />
+                        android:textAppearance="@style/TextAppearance.FontPath.semiBold"
+                        android:textSize="@dimen/font_dash" />
 
                     <androidx.appcompat.widget.AppCompatTextView
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_small"
+
                         android:gravity="center"
                         android:text="Recovered Cases"
+                        android:textAppearance="@style/TextAppearance.FontPath"
                         android:textSize="@dimen/font_large" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -152,16 +157,18 @@
                         android:layout_marginTop="@dimen/spacing_small"
                         android:gravity="center"
                         android:text="1444"
+                        android:textAppearance="@style/TextAppearance.FontPath.semiBold"
 
-                        android:textSize="@dimen/font_xxxlarge" />
+                        android:textSize="@dimen/font_dash" />
 
                     <androidx.appcompat.widget.AppCompatTextView
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_small"
+
                         android:gravity="center"
                         android:text="Deceased"
+                        android:textAppearance="@style/TextAppearance.FontPath"
                         android:textSize="@dimen/font_large" />
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -181,6 +188,7 @@
             android:gravity="center"
             android:padding="@dimen/spacing_normal"
             android:text="TAKE SURVEY NOW"
+            android:textAppearance="@style/TextAppearance.FontPath.semiBold"
             android:textColor="@color/white"
             android:textSize="@dimen/font_large" />
     </RelativeLayout>

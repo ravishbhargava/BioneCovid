@@ -3,6 +3,7 @@
 
 
     <!-- font sizes -->
+    <dimen name="font_dash">40sp</dimen>
     <dimen name="font_xxxlarge">24sp</dimen>
     <dimen name="font_xxlarge">20sp</dimen>
     <dimen name="font_xlarge">18sp</dimen>

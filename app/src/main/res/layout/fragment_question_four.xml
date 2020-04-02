@@ -46,6 +46,7 @@
         android:gravity="center"
         android:padding="@dimen/spacing_normal"
         android:text="CONTINUE"
+        android:textAppearance="@style/TextAppearance.FontPath.semiBold"
         android:textColor="@color/white"
         android:textSize="@dimen/font_large" />
 </RelativeLayout>

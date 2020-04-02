@@ -24,6 +24,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/spacing_normal"
-        android:text="Not Available" />
+        android:text="Not Available"
+        android:textAppearance="@style/TextAppearance.FontPath"
+        android:textSize="@dimen/font_small" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

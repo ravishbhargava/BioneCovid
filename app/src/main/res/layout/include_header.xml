@@ -24,8 +24,9 @@
         android:layout_gravity="center"
         android:padding="@dimen/spacing_normal"
         android:text="@string/app_name"
+        android:textAppearance="@style/TextAppearance.FontPath.semiBold"
         android:textAlignment="center"
-        android:textSize="@dimen/font_xlarge" />
+        android:textSize="@dimen/font_xxlarge" />
 
 
 </RelativeLayout>

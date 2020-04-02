@@ -19,6 +19,11 @@
         <item name="fontPath">fonts/Poppins-Bold.ttf</item>
     </style>
 
+    <style name="TextAppearance.FontPath.semiBold" parent="android:TextAppearance">
+        <!-- Custom Attr-->
+        <item name="fontPath">fonts/Poppins-SemiBold.ttf</item>
+    </style>
+
 
     <!--    <style name="MyCheckBoxStyle" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">-->
     <!--        <item name="android:textColor">@drawable/my_compound_button_color_selector</item>-->

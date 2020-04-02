@@ -22,8 +22,9 @@
             android:gravity="center"
             android:padding="@dimen/spacing_normal"
             android:text=" Enter your login details to \naccess your account"
+            android:textAppearance="@style/TextAppearance.FontPath"
             android:textColor="@color/black"
-            android:textSize="@dimen/font_xxlarge" />
+            android:textSize="@dimen/font_xlarge" />
 
 
         <LinearLayout
@@ -42,8 +43,9 @@
                 android:gravity="left|center"
                 android:hint="name"
                 android:padding="@dimen/spacing_normal"
+                android:textAppearance="@style/TextAppearance.FontPath"
                 android:textColor="@color/black"
-                android:textSize="@dimen/font_large" />
+                android:textSize="@dimen/font_xxlarge" />
 
             <View
                 android:layout_width="match_parent"
@@ -58,8 +60,9 @@
                 android:gravity="left|center"
                 android:hint="email"
                 android:padding="@dimen/spacing_normal"
+                android:textAppearance="@style/TextAppearance.FontPath"
                 android:textColor="@color/black"
-                android:textSize="@dimen/font_large" />
+                android:textSize="@dimen/font_xxlarge" />
 
             <View
                 android:layout_width="match_parent"
@@ -75,22 +78,24 @@
                 android:gravity="left|center"
                 android:hint="password"
                 android:padding="@dimen/spacing_normal"
+                android:textAppearance="@style/TextAppearance.FontPath"
                 android:textColor="@color/black"
-                android:textSize="@dimen/font_large" />
+                android:textSize="@dimen/font_xxlarge" />
         </LinearLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvContinue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_margin="@dimen/spacing_large"
             android:layout_marginTop="@dimen/spacing_normal"
             android:background="@drawable/drawable_common_button"
+            android:drawableRight="@drawable/ic_continue"
             android:gravity="center"
             android:padding="@dimen/spacing_normal"
-            android:layout_alignParentBottom="true"
-            android:drawableRight="@drawable/ic_continue"
             android:text="CONTINUE"
+            android:textAppearance="@style/TextAppearance.FontPath.semiBold"
             android:textColor="@color/white"
             android:textSize="@dimen/font_large" />
 

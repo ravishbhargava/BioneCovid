@@ -22,6 +22,7 @@
             android:padding="@dimen/spacing_normal"
             android:text=" What is your age?*"
             android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.FontPath"
             android:textColor="@color/black"
             android:textSize="@dimen/font_xlarge" />
 
@@ -37,8 +38,9 @@
             android:minWidth="150dp"
             android:minHeight="50dp"
             android:padding="@dimen/spacing_normal"
+            android:textAppearance="@style/TextAppearance.FontPath"
             android:textColor="@color/black"
-            android:textSize="@dimen/font_large" />
+            android:textSize="@dimen/font_small" />
 
     </LinearLayout>
 
@@ -54,6 +56,7 @@
         android:gravity="center"
         android:padding="@dimen/spacing_normal"
         android:text="CONTINUE"
+        android:textAppearance="@style/TextAppearance.FontPath.semiBold"
         android:textColor="@color/white"
         android:textSize="@dimen/font_large" />
 </RelativeLayout>

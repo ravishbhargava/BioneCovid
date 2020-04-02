@@ -38,6 +38,7 @@
             android:gravity="center"
             android:padding="@dimen/spacing_normal"
             android:text="SIGN IN"
+            android:textAppearance="@style/TextAppearance.FontPath.semiBold"
             android:textColor="@color/white"
             android:textSize="@dimen/font_large" />
 
@@ -50,7 +51,7 @@
             android:gravity="center"
             android:padding="@dimen/spacing_normal"
             android:text="SIGN UP"
-            android:textAppearance="@style/TextAppearance.FontPath.bold"
+            android:textAppearance="@style/TextAppearance.FontPath.semiBold"
             android:textColor="@color/white"
             android:textSize="@dimen/font_large" />
 
