@@ -16,10 +16,9 @@ import io.github.inflationx.viewpump.ViewPump;
 //import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 
-
 /**
  * Developer: Bione
- *
+ * <p>
  * The Application class
  */
 
@@ -52,7 +51,7 @@ public class MyApplication extends Application {
         ViewPump.init(ViewPump.builder()
                 .addInterceptor(new CalligraphyInterceptor(
                         new CalligraphyConfig.Builder()
-                                .setDefaultFontPath("fonts/Poppins-Black.ttf")
+                                .setDefaultFontPath("fonts/Poppins-Regular.ttf")
                                 .setFontAttrId(R.attr.fontPath)
                                 .build()))
                 .build());
@@ -63,6 +62,7 @@ public class MyApplication extends Application {
 //                .build()
 //        );
     }
+
     synchronized public Tracker getDefaultTracker() {
         // To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
         if (sTracker == null) {

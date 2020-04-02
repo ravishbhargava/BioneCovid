@@ -10,24 +10,24 @@
 
     <style name="TextAppearance.FontPath" parent="android:TextAppearance">
         <!-- Custom Attr-->
-        <item name="fontPath">fonts/Poppins-Black.ttf</item>
+        <item name="fontPath">fonts/Poppins-Regular.ttf</item>
     </style>
 
 
     <style name="TextAppearance.FontPath.bold" parent="android:TextAppearance">
         <!-- Custom Attr-->
-        <item name="fontPath">fonts/Poppins-Italic.ttf</item>
+        <item name="fontPath">fonts/Poppins-Bold.ttf</item>
     </style>
 
 
-    <style name="MyCheckBoxStyle" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">
-        <item name="android:textColor">@drawable/my_compound_button_color_selector</item>
-        <item name="buttonTint">@drawable/my_compound_button_color_selector</item>
-    </style>
+    <!--    <style name="MyCheckBoxStyle" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">-->
+    <!--        <item name="android:textColor">@drawable/my_compound_button_color_selector</item>-->
+    <!--        <item name="buttonTint">@drawable/my_compound_button_color_selector</item>-->
+    <!--    </style>-->
 
-    <style name="MyRadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">
-        <item name="android:textColor">@drawable/my_compound_button_color_selector</item>
-        <item name="buttonTint">@drawable/my_compound_button_color_selector</item>
-    </style>
+    <!--    <style name="MyRadioButtonStyle" parent="Widget.AppCompat.CompoundButton.RadioButton">-->
+    <!--        <item name="android:textColor">@drawable/my_compound_button_color_selector</item>-->
+    <!--        <item name="buttonTint">@drawable/my_compound_button_color_selector</item>-->
+    <!--    </style>-->
 
 </resources>

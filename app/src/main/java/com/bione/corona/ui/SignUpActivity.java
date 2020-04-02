@@ -1,6 +1,6 @@
 package com.bione.corona.ui;
 
-import android.app.Activity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,8 +9,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.bione.corona.R;
+import com.bione.corona.ui.base.BaseActivity;
 
-public class SignUpActivity extends Activity {
+public class SignUpActivity extends BaseActivity {
 
     private AppCompatTextView tvContinue;
 

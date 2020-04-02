@@ -5,16 +5,16 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bione.corona.R;
 import com.bione.corona.ui.adapter.SurveyAdapter;
+import com.bione.corona.ui.base.BaseActivity;
 import com.bione.corona.utils.CustomViewPager;
 import com.bione.corona.utils.Log;
 
-public class SurveyActivity extends AppCompatActivity {
+public class SurveyActivity extends BaseActivity {
 
     private CustomViewPager viewPager;
 

@@ -10,10 +10,11 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import com.bione.corona.R;
+import com.bione.corona.ui.base.BaseActivity;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 
     private AppCompatTextView tvSignUp;
     private AppCompatTextView tvSignIn;
@@ -43,8 +44,8 @@ public class MainActivity extends Activity {
         });
     }
 
-    @Override
-    protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
-    }
+//    @Override
+//    protected void attachBaseContext(Context newBase) {
+//        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
+//    }
 }
