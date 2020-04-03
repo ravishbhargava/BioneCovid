@@ -14,6 +14,8 @@ import com.bione.corona.ui.base.BaseActivity;
 
 public class ResultActivity extends BaseActivity {
 
+    private String url = "https://www.bione.in";
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +37,9 @@ public class ResultActivity extends BaseActivity {
         }
 
     }
+
     public void openWebsite(View view) {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(browserIntent);
     }
 }

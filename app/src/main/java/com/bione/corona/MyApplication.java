@@ -11,6 +11,7 @@ import java.lang.ref.WeakReference;
 import io.github.inflationx.calligraphy3.CalligraphyConfig;
 import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
 import io.github.inflationx.viewpump.ViewPump;
+import io.paperdb.Paper;
 
 //import io.paperdb.Paper;
 //import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -43,7 +44,7 @@ public class MyApplication extends Application {
         super.onCreate();
 //        Fabric.with(this, new Crashlytics());
 //        Foreground.init(this);
-//        Paper.init(this);
+        Paper.init(this);
         mWeakReference = new WeakReference<Context>(this);
 
         sAnalytics = GoogleAnalytics.getInstance(this);

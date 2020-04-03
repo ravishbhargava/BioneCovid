@@ -25,6 +25,8 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.bione.corona.BuildConfig.BASE_URL;
+
 //import static com.bione.corona.BuildConfig.BASE_URL;
 
 
@@ -57,7 +59,7 @@ public final class RestClient {
     public static ApiInterface getApiInterface() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
-//                    .baseUrl(BASE_URL)
+                    .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(httpClient().build())
 //                    .client(secureConnection().build())

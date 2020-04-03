@@ -11,12 +11,13 @@ import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
 
 /**
  * Developer: Bione
- *
+ * <p>
  * The API interface for your application
  */
 public interface ApiInterface {
@@ -40,13 +41,13 @@ public interface ApiInterface {
      */
 
 //    @Headers({"Content-Type: application/json; charset=utf-8"})
-    @POST("/rest/V1/bioneapi-customersendotp/sendotp")
-    Call<CommonResponse> sendOtp(@QueryMap Map<String, String> map);
+    @POST("/rest/V1/bionecovidapi-mobileapi/signup")
+    Call<CommonResponse> signup(@Query("email") String email, @Query("password") String password, @Query("name") String name);
 
 
     //    @Headers({"Content-Type: application/json; charset=utf-8"})
-    @GET("/rest/V1/bioneapi-customersendotp/verifyotp")
-    Call<CommonResponse> verifyOtp(@QueryMap Map<String, String> map);
+    @GET("/rest/V1/bionecovidapi-mobileapi/signin")
+    Call<CommonResponse> signin(@QueryMap Map<String, String> map);
 
 
     @GET("/api/unknown")
@@ -56,16 +57,15 @@ public interface ApiInterface {
     Call<Example> getCoronaResults();
 
 
-
-    /**
-     * OTP verification
-     *
-     * @param map the map of params to go along with reqquest
-     * @return parsed common response object
-     */
-    @FormUrlEncoded
-    @POST("/signIn")
-    Call<CommonResponse> signIn(@FieldMap Map<String, String> map);
+//    /**
+//     * OTP verification
+//     *
+//     * @param map the map of params to go along with reqquest
+//     * @return parsed common response object
+//     */
+//    @FormUrlEncoded
+//    @POST("/signIn")
+//    Call<CommonResponse> signIn(@FieldMap Map<String, String> map);
 
 //    /**
 //     * * Fetch notifications data from server

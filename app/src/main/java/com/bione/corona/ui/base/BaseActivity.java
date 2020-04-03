@@ -1,8 +1,11 @@
 package com.bione.corona.ui.base;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -19,6 +22,8 @@ import com.bione.corona.R;
 import com.bione.corona.network.ApiError;
 import com.bione.corona.utils.AppConstant;
 import com.bione.corona.utils.CommonUtil;
+
+import java.util.Calendar;
 
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
@@ -40,6 +45,20 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+//        Intent myIntent = new Intent(this, NotifyService.class);
+//        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+//        PendingIntent pendingIntent = PendingIntent.getService(this, 0, myIntent, 0);
+//
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.set(Calendar.SECOND, 0);
+//        calendar.set(Calendar.MINUTE, 0);
+//        calendar.set(Calendar.HOUR, 0);
+//        calendar.set(Calendar.AM_PM, Calendar.AM);
+//        calendar.add(Calendar.DAY_OF_MONTH, 1);
+//
+//        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000 * 60, pendingIntent);
+//        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000*60*60*24 , pendingIntent);
     }
 
     @Override

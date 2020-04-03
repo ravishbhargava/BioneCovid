@@ -48,9 +48,8 @@ android {
     productFlavors {
         dev {
 
-//            buildConfigField 'String', 'BASE_URL', '"https://reqres.in"'
-//            buildConfigField 'String', 'BASE_URL', '"https://staging.bione.in/"'
-            buildConfigField 'String', 'BASE_URL', '"https://bione.in/"'
+
+            buildConfigField 'String', 'BASE_URL', '"https://www.bione.in/"'
             buildConfigField 'boolean', 'WATER_MARK', 'true'
 
         }
@@ -72,15 +71,6 @@ android {
 //        }
     }
 
-
-
-
-//    buildTypes {
-//        release {
-//            minifyEnabled false
-//            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-//        }
-//    }
 }
 
 dependencies {
