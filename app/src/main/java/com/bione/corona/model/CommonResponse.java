@@ -3,6 +3,8 @@ package com.bione.corona.model;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 
+import java.lang.reflect.Type;
+
 /**
  * Developer: Bione
  *
@@ -52,6 +54,12 @@ public class CommonResponse {
      * @return the parsed response object
      */
     public <T> T toResponseModel(final Class<T> classRef) {
-        return new Gson().fromJson(new Gson().toJson(data), classRef);
+
+       return new Gson().fromJson(new Gson().toJson(data), classRef);
+
+//        Type collectionType = new TypeToken<Collection<ChannelSearchEnum>>(){}.getType();
+//        Collection<ChannelSearchEnum> enums = gson.fromJson(yourJson, collectionType);
+//
+//        return new Gson().fromJson(new Gson().toJson(data), classRef);
     }
 }

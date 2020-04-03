@@ -1,7 +1,5 @@
 package com.bione.corona.ui;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +10,6 @@ import androidx.appcompat.widget.AppCompatTextView;
 import com.bione.corona.R;
 import com.bione.corona.ui.base.BaseActivity;
 
-import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class MainActivity extends BaseActivity {
 

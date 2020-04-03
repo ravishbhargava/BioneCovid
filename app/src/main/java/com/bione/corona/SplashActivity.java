@@ -18,7 +18,10 @@ import android.os.Bundle;
 import android.widget.Toast;
 import android.location.LocationListener;
 
+import com.bione.corona.ui.DashBoardActivity;
 import com.bione.corona.ui.MainActivity;
+import com.bione.corona.ui.base.BaseActivity;
+import com.bione.corona.utils.CommonData;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.location.FusedLocationProviderClient;
 
@@ -28,7 +31,7 @@ import com.google.android.gms.analytics.Tracker;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 
-public class SplashActivity extends AppCompatActivity implements LocationListener {
+public class SplashActivity extends BaseActivity implements LocationListener {
 
     private FusedLocationProviderClient fusedLocationClient;
     private Tracker mTracker;
@@ -62,13 +65,13 @@ public class SplashActivity extends AppCompatActivity implements LocationListene
 
 
         Log.i("screen", "Setting screen name: " + "name");
-        mTracker.setScreenName(" main activity");
-        mTracker.setLocation("Jalandhar");
-
-        mTracker.send(new HitBuilders.EventBuilder()
-                .setCategory("Location")
-                .setAction("New Location")
-                .build());
+//        mTracker.setScreenName(" main activity");
+//        mTracker.setLocation("Jalandhar");
+//
+//        mTracker.send(new HitBuilders.EventBuilder()
+//                .setCategory("Location")
+//                .setAction("New Location")
+//                .build());
 
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -99,8 +102,24 @@ public class SplashActivity extends AppCompatActivity implements LocationListene
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 // do something...
-                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-                startActivity(intent);
+                if(CommonData.getPassword() == null){
+                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                }else {
+                    if (CommonData.getPassword().equalsIgnoreCase("")) {
+                        Log.d("password", "not saved : " + CommonData.getPassword());
+                        Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Log.d("password", " saved : " + CommonData.getPassword());
+                        Intent intent = new Intent(SplashActivity.this, DashBoardActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                }
+
             }
         }, 2000);
 

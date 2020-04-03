@@ -3,7 +3,10 @@ package com.bione.corona.network;
 
 import com.bione.corona.model.CommonResponse;
 import com.bione.corona.model.getCoronaResults.Example;
+import com.bione.corona.model.onboard.SignUpDatum;
+import com.bione.corona.model.onboard.Software;
 
+import java.util.List;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -42,12 +45,12 @@ public interface ApiInterface {
 
 //    @Headers({"Content-Type: application/json; charset=utf-8"})
     @POST("/rest/V1/bionecovidapi-mobileapi/signup")
-    Call<CommonResponse> signup(@Query("email") String email, @Query("password") String password, @Query("name") String name);
+    Call<List<SignUpDatum>> signup(@Query("email") String email, @Query("password") String password, @Query("name") String name);
 
 
     //    @Headers({"Content-Type: application/json; charset=utf-8"})
     @GET("/rest/V1/bionecovidapi-mobileapi/signin")
-    Call<CommonResponse> signin(@QueryMap Map<String, String> map);
+    Call<List<SignUpDatum>> signin(@QueryMap Map<String, String> map);
 
 
     @GET("/api/unknown")

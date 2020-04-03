@@ -13,12 +13,17 @@ import androidx.appcompat.widget.AppCompatTextView;
 
 import com.bione.corona.R;
 import com.bione.corona.model.CommonResponse;
+import com.bione.corona.model.onboard.SignUpDatum;
 import com.bione.corona.network.ApiError;
 import com.bione.corona.network.CommonParams;
 import com.bione.corona.network.ResponseResolver;
 import com.bione.corona.network.RestClient;
 import com.bione.corona.ui.base.BaseActivity;
+import com.bione.corona.utils.CommonData;
+import com.bione.corona.utils.ProgressDialog;
 import com.bione.corona.utils.ValidationUtil;
+
+import java.util.List;
 
 public class SignUpActivity extends BaseActivity {
 
@@ -49,18 +54,19 @@ public class SignUpActivity extends BaseActivity {
         tvContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                if (ValidationUtil.checkEmail(etEmail.getText().toString())
-//                        && ValidationUtil.checkPassword(etPassword.getText().toString())
-//                        && TextUtils.isEmpty(etName.getText().toString())) {
-                callApi();
-//                } else {
-//                    ValidationUtil.showToast(getApplicationContext(), "Please fill the details");
-//                }
+                if (ValidationUtil.checkEmail(etEmail.getText().toString())
+                        && ValidationUtil.checkPassword(etPassword.getText().toString())
+                        && (!TextUtils.isEmpty(etName.getText().toString()))) {
+                    callApi();
+                } else {
+                    ValidationUtil.showToast(getApplicationContext(), "Please fill the details");
+                }
             }
         });
     }
 
     private void callApi() {
+        showLoading();
         final CommonParams commonParams = new CommonParams.Builder()
                 .add("name", etName.getText().toString())
                 .add("email", etEmail.getText().toString())
@@ -72,22 +78,27 @@ public class SignUpActivity extends BaseActivity {
                 etEmail.getText().toString(),
                 etPassword.getText().toString(),
                 etName.getText().toString())
-                .enqueue(new ResponseResolver<CommonResponse>() {
-            @Override
-            public void onSuccess(CommonResponse commonResponse) {
-                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
+                .enqueue(new ResponseResolver<List<SignUpDatum>>() {
+                    @Override
+                    public void onSuccess(List<SignUpDatum> commonResponse) {
+                        hideLoading();
 
-            @Override
-            public void onError(ApiError error) {
+                        CommonData.saveUserName(etName.getText().toString());
+                        Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                        startActivity(intent);
+                    }
 
-            }
+                    @Override
+                    public void onError(ApiError error) {
+                        hideLoading();
+                        showErrorMessage(error.getMessage());
+                    }
 
-            @Override
-            public void onFailure(Throwable throwable) {
-
-            }
-        });
+                    @Override
+                    public void onFailure(Throwable throwable) {
+                        hideLoading();
+                        showErrorMessage(throwable.getMessage());
+                    }
+                });
     }
 }

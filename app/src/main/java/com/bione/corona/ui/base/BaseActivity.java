@@ -1,12 +1,18 @@
 package com.bione.corona.ui.base;
 
 import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
@@ -17,11 +23,13 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.bione.corona.R;
 import com.bione.corona.network.ApiError;
 import com.bione.corona.utils.AppConstant;
 import com.bione.corona.utils.CommonUtil;
+import com.bione.corona.utils.ProgressDialog;
 
 import java.util.Calendar;
 
@@ -45,6 +53,21 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     protected void onCreate(@Nullable final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+//        Intent notifyIntent = new Intent(this, MyReceiver.class);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast
+//                (getApplicationContext(), 101, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        AlarmManager alarmManager = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+//        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis(),
+//                1000 * 60, pendingIntent);
+
+//        notificationReceiver = new BroadcastReceiver() {
+//            @Override
+//            public void onReceive(final Context context, final Intent intent) {
+//
+//            }
+//        };
+
+        scheduleNotification(getNotification("5 second delay"), 5000);
 
 //        Intent myIntent = new Intent(this, NotifyService.class);
 //        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -61,20 +84,64 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 //        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), 1000*60*60*24 , pendingIntent);
     }
 
+
+    private void scheduleNotification(Notification notification, int delay) {
+
+        Intent notificationIntent = new Intent(this, NotificationPublisher.class);
+        notificationIntent.putExtra(NotificationPublisher.NOTIFICATION_ID, 1);
+        notificationIntent.putExtra(NotificationPublisher.NOTIFICATION, notification);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        long futureInMillis = SystemClock.elapsedRealtime() + delay;
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+//        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP, futureInMillis, pendingIntent);
+//        Calendar calendar = Calendar.getInstance();
+//        calendar.set(Calendar.SECOND, 0);
+//        calendar.set(Calendar.MINUTE, 52);
+//        calendar.set(Calendar.HOUR, 5);
+//        calendar.set(Calendar.AM_PM, Calendar.PM);
+//        calendar.add(Calendar.DAY_OF_MONTH, 1);
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, futureInMillis, 10 * 1000, pendingIntent);
+    }
+
+    private Notification getNotification(String content) {
+        Notification.Builder builder = new Notification.Builder(this);
+        builder.setContentTitle("Scheduled Notification");
+        builder.setContentText(content);
+        builder.setChannelId(createNotificationChannel());
+        builder.setSmallIcon(R.drawable.ic_back);
+        return builder.build();
+    }
+
+    private String createNotificationChannel() {
+// Create the NotificationChannel, but only on API 26+ because
+// the NotificationChannel class is new and not in the support library
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "bione";
+            String description = "covid";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("101", name,
+                    importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviours after this
+            NotificationManager notificationManager =
+                    getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+            return "101";
+        }
+        return "";
+    }
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
-//    @Override
-//    protected void attachBaseContext(Context newBase) {
-//        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
-//    }
-
     @Override
     protected void onResume() {
         super.onResume();
-
+        LocalBroadcastManager.getInstance(this).registerReceiver(notificationReceiver, new IntentFilter(AppConstant.NOTIFICATION_RECEIVED));
     }
 
 
@@ -137,17 +204,17 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 
     @Override
     public void showLoading() {
-//        ProgressDialog.showProgressDialog(this);
+        ProgressDialog.showProgressDialog(this);
     }
 
     @Override
     public void showLoading(final String message) {
-//        ProgressDialog.showProgressDialog(this, message);
+        ProgressDialog.showProgressDialog(this, message);
     }
 
     @Override
     public void hideLoading() {
-//        ProgressDialog.dismissProgressDialog();
+        ProgressDialog.dismissProgressDialog();
     }
 
 
