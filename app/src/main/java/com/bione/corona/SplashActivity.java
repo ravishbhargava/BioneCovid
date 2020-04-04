@@ -65,13 +65,13 @@ public class SplashActivity extends BaseActivity implements LocationListener {
 
 
         Log.i("screen", "Setting screen name: " + "name");
-//        mTracker.setScreenName(" main activity");
-//        mTracker.setLocation("Jalandhar");
-//
-//        mTracker.send(new HitBuilders.EventBuilder()
-//                .setCategory("Location")
-//                .setAction("New Location")
-//                .build());
+        mTracker.setScreenName(" main activity");
+        mTracker.setLocation("Jalandhar");
+
+        mTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Location")
+                .setAction("New Location")
+                .build());
 
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
@@ -102,11 +102,11 @@ public class SplashActivity extends BaseActivity implements LocationListener {
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 // do something...
-                if(CommonData.getPassword() == null){
+                if (CommonData.getPassword() == null) {
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
-                }else {
+                } else {
                     if (CommonData.getPassword().equalsIgnoreCase("")) {
                         Log.d("password", "not saved : " + CommonData.getPassword());
                         Intent intent = new Intent(SplashActivity.this, MainActivity.class);
@@ -121,7 +121,7 @@ public class SplashActivity extends BaseActivity implements LocationListener {
                 }
 
             }
-        }, 2000);
+        }, 3000);
 
 //        // Get the location manager
 //        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -201,7 +201,7 @@ public class SplashActivity extends BaseActivity implements LocationListener {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
-
+            Log.d("checkLocationPermission", "1st if");
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)) {
@@ -219,20 +219,23 @@ public class SplashActivity extends BaseActivity implements LocationListener {
                                 ActivityCompat.requestPermissions(SplashActivity.this,
                                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                                         MY_PERMISSIONS_REQUEST_LOCATION);
+                                Log.d("checkLocationPermission", "alert clicked");
                             }
                         })
                         .create()
                         .show();
-
+                Log.d("checkLocationPermission", "2nd if");
 
             } else {
                 // No explanation needed, we can request the permission.
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                         MY_PERMISSIONS_REQUEST_LOCATION);
+                Log.d("checkLocationPermission", "2nd else ");
             }
             return false;
         } else {
+            Log.d("checkLocationPermission", "1st else");
             return true;
         }
     }
@@ -245,19 +248,21 @@ public class SplashActivity extends BaseActivity implements LocationListener {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
+                    // permission granted
+                    Log.d("onRequestPermissionsResult", "1st if");
                     // permission was granted, yay! Do the
                     // location-related task you need to do.
                     if (ContextCompat.checkSelfPermission(this,
                             Manifest.permission.ACCESS_FINE_LOCATION)
                             == PackageManager.PERMISSION_GRANTED) {
-
+                        Log.d("onRequestPermissionsResult", "2nd if");
                         //Request location updates:
 //                        locationManager.requestLocationUpdates(provider, 400, 1, this);
                     }
 
                 } else {
-
+                    //Deny
+                    Log.d("onRequestPermissionsResult", "else");
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
 

@@ -51,9 +51,16 @@ public class LoginActivity extends BaseActivity {
         tvContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (ValidationUtil.checkEmail(etEmail.getText().toString())
-                        && ValidationUtil.checkPassword(etPassword.getText().toString())) {
-                    callApi();
+
+
+                if (ValidationUtil.checkEmail(etEmail.getText().toString())) {
+                    if (ValidationUtil.checkPassword(etPassword.getText().toString())) {
+                        callApi();
+                    } else {
+                        showErrorMessage(R.string.error_password);
+                    }
+                } else {
+                    showErrorMessage(R.string.error_email);
                 }
 
             }
@@ -71,11 +78,16 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onSuccess(List<SignUpDatum> commonResponse) {
                 hideLoading();
-                CommonData.saveEmail(etEmail.getText().toString());
-                CommonData.savePasswordl(etPassword.getText().toString());
-                Intent intent = new Intent(LoginActivity.this, DashBoardActivity.class);
-                startActivity(intent);
-                finishAffinity();
+                if (commonResponse.get(0).getCode().equals("200")) {
+                    CommonData.saveEmail(etEmail.getText().toString());
+                    CommonData.savePasswordl(etPassword.getText().toString());
+                    Intent intent = new Intent(LoginActivity.this, DashBoardActivity.class);
+                    startActivity(intent);
+                    finishAffinity();
+                } else {
+                    showErrorMessage(commonResponse.get(0).getMessage());
+                }
+
             }
 
             @Override

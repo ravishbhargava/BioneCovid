@@ -67,7 +67,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
 //            }
 //        };
 
-        scheduleNotification(getNotification("5 second delay"), 5000);
+//        scheduleNotification(getNotification("5 second delay"), 5000);
 
 //        Intent myIntent = new Intent(this, NotifyService.class);
 //        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
@@ -141,7 +141,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
     @Override
     protected void onResume() {
         super.onResume();
-        LocalBroadcastManager.getInstance(this).registerReceiver(notificationReceiver, new IntentFilter(AppConstant.NOTIFICATION_RECEIVED));
+//        LocalBroadcastManager.getInstance(this).registerReceiver(notificationReceiver, new IntentFilter(AppConstant.NOTIFICATION_RECEIVED));
     }
 
 

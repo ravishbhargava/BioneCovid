@@ -54,13 +54,21 @@ public class SignUpActivity extends BaseActivity {
         tvContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (ValidationUtil.checkEmail(etEmail.getText().toString())
-                        && ValidationUtil.checkPassword(etPassword.getText().toString())
-                        && (!TextUtils.isEmpty(etName.getText().toString()))) {
-                    callApi();
+                if (!TextUtils.isEmpty(etName.getText().toString())) {
+                    if (ValidationUtil.checkEmail(etEmail.getText().toString())) {
+                        if (ValidationUtil.checkPassword(etPassword.getText().toString())) {
+                            callApi();
+                        } else {
+                            showErrorMessage(R.string.error_password);
+                        }
+                    } else {
+                        showErrorMessage(R.string.error_email);
+                    }
                 } else {
-                    ValidationUtil.showToast(getApplicationContext(), "Please fill the details");
+                    showErrorMessage(R.string.error_name);
                 }
+
+
             }
         });
     }
@@ -82,10 +90,13 @@ public class SignUpActivity extends BaseActivity {
                     @Override
                     public void onSuccess(List<SignUpDatum> commonResponse) {
                         hideLoading();
-
-                        CommonData.saveUserName(etName.getText().toString());
-                        Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-                        startActivity(intent);
+                        if (commonResponse.get(0).getCode().equals("200")) {
+                            CommonData.saveUserName(etName.getText().toString());
+                            Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                        } else {
+                            showErrorMessage(commonResponse.get(0).getMessage());
+                        }
                     }
 
                     @Override

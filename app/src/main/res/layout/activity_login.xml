@@ -42,6 +42,7 @@
                 android:background="@color/transparent"
                 android:gravity="left|center"
                 android:hint="email"
+                android:inputType="textEmailAddress"
                 android:padding="@dimen/spacing_normal"
                 android:textAppearance="@style/TextAppearance.FontPath"
                 android:textColor="@color/black"
@@ -60,6 +61,7 @@
                 android:background="@color/transparent"
                 android:gravity="left|center"
                 android:hint="password"
+                android:inputType="textPassword"
                 android:padding="@dimen/spacing_normal"
                 android:textColor="@color/black"
                 android:textSize="@dimen/font_xxlarge" />

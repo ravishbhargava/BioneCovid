@@ -87,6 +87,9 @@
     <string name="coronavirus">CORONAVIRUS</string>
     <string name="call_the_emergency_number_avoid_all_contact">Call the emergency number \nAvoid all contact</string>
     <string name="quarantine">Quarantine</string>
+    <string name="error_password">Password must be at least 6 characters long.</string>
+    <string name="error_email">Please enter valid email.</string>
+    <string name="error_name">Please enter your name.</string>
 
 
 </resources>
