@@ -35,7 +35,7 @@ public class Question10TravelFragment extends Fragment {
     private String type = "Past";
     private AppCompatTextView tvContinue;
     private AppCompatTextView tvQuestion;
-    private String question = "Have you had close contact with a person with suspected COVID-19 infection in the last 14 days?";
+    private String question = "Have you travelled to or resided in the country of local, widespread transmission of coronavirus?";
 
     public Question10TravelFragment() {
 
@@ -73,14 +73,15 @@ public class Question10TravelFragment extends Fragment {
                         Activity activity = getActivity();
                         if (activity instanceof SurveyActivity) {
                             SurveyActivity myActivity = (SurveyActivity) activity;
-                            Intent intent = new Intent(myActivity, ResultActivity.class);
-                            if (mAdapter.getCheckedPosition() == 0 || mAdapter.getCheckedPosition() == 1 || mAdapter.getCheckedPosition() == 2) {
-                                intent.putExtra("type", "2");
-                            } else {
+                            if (mAdapter.getCheckedPosition() == 0) {
+                                Intent intent = new Intent(myActivity, ResultActivity.class);
                                 intent.putExtra("type", "1");
+                                startActivity(intent);
+                                myActivity.finish();
+                            } else {
+                                myActivity.nextStep(1);
                             }
-                            startActivity(intent);
-                            myActivity.finish();
+
                         }
                     } else {
                         ValidationUtil.showToast(mContext);
@@ -112,18 +113,16 @@ public class Question10TravelFragment extends Fragment {
 
         ArrayList<Slots> array = new ArrayList<>();
 
-        Slots slots1 = new Slots("I live or have provided care to a person suspected or having COVID-19", false);
-        Slots slots2 = new Slots("I have shared the same closed environment (e.g., classroom, workspace, gym) or traveled in close proximity (1m) with a person suspected of having COVID-19", false);
-        Slots slots3 = new Slots("I had face-to-face contact for longer than 15 minutes with a person suspected of having COVD-19", false);
-        Slots slots4 = new Slots("Other", false);
-        Slots slots5 = new Slots("None of the above", false);
+        Slots slots1 = new Slots("Local Transmission", false);
+        Slots slots2 = new Slots("No Local Transmission", false);
+//        Slots slots3 = new Slots("History of travel to affected geographical area in last 14 days", false);
+//        Slots slots4 = new Slots("Close contact with confirmed COVID-19 case in last 14 days", false);
 
 
         array.add(slots1);
         array.add(slots2);
-        array.add(slots3);
-        array.add(slots4);
-        array.add(slots5);
+//        array.add(slots3);
+//        array.add(slots4);
 
 
         // specify an adapter (see also next example)

@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.bione.corona.ui.fragment.Question0WhoFragment;
+import com.bione.corona.ui.fragment.Question10TravelFragment;
 import com.bione.corona.ui.fragment.Question2AgeFragment;
 import com.bione.corona.ui.fragment.Question1GenderFragment;
 import com.bione.corona.ui.fragment.Question5TempFragment;
@@ -15,7 +16,7 @@ import com.bione.corona.ui.fragment.Question6RapidlyFragment;
 import com.bione.corona.ui.fragment.Question7BreathingFragment;
 import com.bione.corona.ui.fragment.Question8CoughingFragment;
 import com.bione.corona.ui.fragment.Question9SymptomsFragment;
-import com.bione.corona.ui.fragment.Question10TravelFragment;
+import com.bione.corona.ui.fragment.Question11TravelFragment;
 
 public class SurveyAdapter extends FragmentPagerAdapter {
 
@@ -57,6 +58,8 @@ public class SurveyAdapter extends FragmentPagerAdapter {
                 return new Question9SymptomsFragment();
             case 10:
                 return new Question10TravelFragment();
+            case 11:
+                return new Question11TravelFragment();
             default:
                 return null;
         }

@@ -1,11 +1,9 @@
 package com.bione.corona.ui;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ProgressBar;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.bione.corona.R;
@@ -20,14 +18,17 @@ public class SurveyActivity extends BaseActivity {
 
     private ProgressBar progressBar;
     //    private AppCompatImageView ivBack;
-    public static int resultCorona = 0;
+    public static int conditionCorona = 0;
+    public static int resultType = 0;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey);
 
-        resultCorona = 0;
+        conditionCorona = 0;
+        resultType = 0;
 //        ivBack = findViewById(R.id.ivBack);
 //        ivBack.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -46,7 +47,7 @@ public class SurveyActivity extends BaseActivity {
 
 
         // setting viewPager's pages
-        final SurveyAdapter adapter = new SurveyAdapter(getSupportFragmentManager(), 11);
+        final SurveyAdapter adapter = new SurveyAdapter(getSupportFragmentManager(), 12);
         viewPager.setAdapter(adapter);
         viewPager.setCurrentItem(0);
 

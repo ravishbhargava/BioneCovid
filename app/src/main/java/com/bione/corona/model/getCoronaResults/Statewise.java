@@ -5,82 +5,93 @@ import com.google.gson.annotations.SerializedName;
 
 public class Statewise {
 
-@SerializedName("active")
-@Expose
-private String active;
-@SerializedName("confirmed")
-@Expose
-private String confirmed;
-@SerializedName("deaths")
-@Expose
-private String deaths;
-@SerializedName("delta")
-@Expose
-private Delta delta;
-@SerializedName("lastupdatedtime")
-@Expose
-private String lastupdatedtime;
-@SerializedName("recovered")
-@Expose
-private String recovered;
-@SerializedName("state")
-@Expose
-private String state;
+    @SerializedName("active")
+    @Expose
+    private String active;
+    @SerializedName("confirmed")
+    @Expose
+    private String confirmed;
+    @SerializedName("deltaconfirmed")
+    @Expose
+    private String deltaconfirmed;
+    @SerializedName("deaths")
+    @Expose
+    private String deaths;
+    @SerializedName("delta")
+    @Expose
+    private Delta delta;
+    @SerializedName("lastupdatedtime")
+    @Expose
+    private String lastupdatedtime;
+    @SerializedName("recovered")
+    @Expose
+    private String recovered;
+    @SerializedName("state")
+    @Expose
+    private String state;
 
-public String getActive() {
-return active;
-}
+    public String getActive() {
+        return active;
+    }
 
-public void setActive(String active) {
-this.active = active;
-}
+    public void setActive(String active) {
+        this.active = active;
+    }
 
-public String getConfirmed() {
-return confirmed;
-}
+    public String getConfirmed() {
+        return confirmed;
+    }
 
-public void setConfirmed(String confirmed) {
-this.confirmed = confirmed;
-}
+    public void setConfirmed(String confirmed) {
+        this.confirmed = confirmed;
+    }
 
-public String getDeaths() {
-return deaths;
-}
+    public String getDeltaConfirmed() {
+        return deltaconfirmed;
+    }
 
-public void setDeaths(String deaths) {
-this.deaths = deaths;
-}
+    public void setDeltaConfirmed(String deltaconfirmed) {
+        this.deltaconfirmed = deltaconfirmed;
+    }
 
-public Delta getDelta() {
-return delta;
-}
+    public String getDeaths() {
+        return deaths;
+    }
 
-public void setDelta(Delta delta) {
-this.delta = delta;
-}
+    public void setDeaths(String deaths) {
+        this.deaths = deaths;
+    }
 
-public String getLastupdatedtime() {
-return lastupdatedtime;
-}
+    public Delta getDelta() {
+        return delta;
+    }
 
-public void setLastupdatedtime(String lastupdatedtime) {
-this.lastupdatedtime = lastupdatedtime;
-}
+    public void setDelta(Delta delta) {
+        this.delta = delta;
+    }
 
-public String getRecovered() {
-return recovered;
-}
+    public String getLastupdatedtime() {
+        return lastupdatedtime;
+    }
 
-public void setRecovered(String recovered) {
-this.recovered = recovered;
-}
+    public void setLastupdatedtime(String lastupdatedtime) {
+        this.lastupdatedtime = lastupdatedtime;
+    }
 
-public String getState() {
-return state;
-}
+    public String getRecovered() {
+        return recovered;
+    }
 
-public void setState(String state) {
-this.state = state;
-}
+    public void setRecovered(String recovered) {
+        this.recovered = recovered;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 
 }

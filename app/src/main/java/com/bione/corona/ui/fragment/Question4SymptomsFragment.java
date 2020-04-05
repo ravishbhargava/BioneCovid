@@ -18,12 +18,12 @@ import com.bione.corona.R;
 import com.bione.corona.model.Slots;
 import com.bione.corona.ui.SurveyActivity;
 import com.bione.corona.ui.fragment.adapter.CheckBoxAdapter;
-import com.bione.corona.utils.Log;
 import com.bione.corona.utils.ValidationUtil;
 
 import java.util.ArrayList;
 
-import static com.bione.corona.ui.SurveyActivity.resultCorona;
+
+import static com.bione.corona.ui.SurveyActivity.resultType;
 
 public class Question4SymptomsFragment extends Fragment {
 
@@ -83,6 +83,7 @@ public class Question4SymptomsFragment extends Fragment {
                             ArrayList<Slots> arrayList = mAdapter.getSlots();
 
                             if (arrayList.get(0).isSelected() && arrayList.get(1).isSelected()) {
+                                resultType = 2;
                                 myActivity.nextStep(1);
                             } else if (arrayList.get(0).isSelected() && arrayList.get(2).isSelected()) {
                                 myActivity.nextStep(1);
@@ -96,6 +97,7 @@ public class Question4SymptomsFragment extends Fragment {
                                 myActivity.nextStep(2);
                             } else {
                                 myActivity.nextStep(5);
+                                resultType = 1;
                             }
                         }
                     } else {

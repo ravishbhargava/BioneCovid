@@ -23,6 +23,8 @@ import com.bione.corona.utils.ValidationUtil;
 
 import java.util.ArrayList;
 
+import static com.bione.corona.ui.SurveyActivity.resultType;
+
 public class Question9SymptomsFragment extends Fragment {
 
 
@@ -78,7 +80,11 @@ public class Question9SymptomsFragment extends Fragment {
                         Activity activity = getActivity();
                         if (activity instanceof SurveyActivity) {
                             SurveyActivity myActivity = (SurveyActivity) activity;
-                            myActivity.nextStep(1);
+                            if (resultType == 2) {
+                                myActivity.nextStep(1);
+                            } else {
+                                myActivity.nextStep(2);
+                            }
                         }
                     } else {
                         ValidationUtil.showToast(mContext);

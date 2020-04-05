@@ -2,6 +2,7 @@ package com.bione.corona.ui.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,15 +17,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bione.corona.R;
 import com.bione.corona.model.Slots;
+import com.bione.corona.ui.ResultActivity;
 import com.bione.corona.ui.SurveyActivity;
 import com.bione.corona.ui.fragment.adapter.RadioAdapter;
 import com.bione.corona.utils.ValidationUtil;
 
 import java.util.ArrayList;
 
-import static com.bione.corona.ui.SurveyActivity.conditionCorona;
+import static com.bione.corona.ui.SurveyActivity.resultType;
 
-public class Question7BreathingFragment extends Fragment {
+public class Question11TravelFragment extends Fragment {
 
 
     private View rootView;
@@ -35,9 +37,9 @@ public class Question7BreathingFragment extends Fragment {
     private String type = "Past";
     private AppCompatTextView tvContinue;
     private AppCompatTextView tvQuestion;
-    private String question = "Are you breathing very fast?";
+    private String question = "Have you had close contact with a person with suspected COVID-19 infection in the last 14 days?";
 
-    public Question7BreathingFragment() {
+    public Question11TravelFragment() {
 
     }
 
@@ -73,10 +75,22 @@ public class Question7BreathingFragment extends Fragment {
                         Activity activity = getActivity();
                         if (activity instanceof SurveyActivity) {
                             SurveyActivity myActivity = (SurveyActivity) activity;
-                            if (mAdapter.getCheckedPosition() == 0) {
-                                conditionCorona = conditionCorona + 1;
+                            Intent intent = new Intent(myActivity, ResultActivity.class);
+                            if (resultType == 1) {
+                                if (mAdapter.getCheckedPosition() == 0 || mAdapter.getCheckedPosition() == 1 || mAdapter.getCheckedPosition() == 2) {
+                                    intent.putExtra("type", "2");
+                                } else {
+                                    intent.putExtra("type", "1");
+                                }
+                            } else {
+                                if (mAdapter.getCheckedPosition() == 0 || mAdapter.getCheckedPosition() == 1 || mAdapter.getCheckedPosition() == 2) {
+                                    intent.putExtra("type", "1");
+                                } else {
+                                    intent.putExtra("type", "2");
+                                }
                             }
-                            myActivity.nextStep(1);
+                            startActivity(intent);
+                            myActivity.finish();
                         }
                     } else {
                         ValidationUtil.showToast(mContext);
@@ -108,16 +122,18 @@ public class Question7BreathingFragment extends Fragment {
 
         ArrayList<Slots> array = new ArrayList<>();
 
-        Slots slots1 = new Slots("Yes", false);
-        Slots slots2 = new Slots("No", false);
-//        Slots slots3 = new Slots("High Fever > 102 F", false);
-//        Slots slots4 = new Slots("Close contact with confirmed COVID-19 case in last 14 days", false);
+        Slots slots1 = new Slots("I live or have provided care to a person suspected or having COVID-19", false);
+        Slots slots2 = new Slots("I have shared the same closed environment (e.g., classroom, workspace, gym) or traveled in close proximity (1m) with a person suspected of having COVID-19", false);
+        Slots slots3 = new Slots("I had face-to-face contact for longer than 15 minutes with a person suspected of having COVD-19", false);
+        Slots slots4 = new Slots("Other", false);
+        Slots slots5 = new Slots("None of the above", false);
 
 
         array.add(slots1);
         array.add(slots2);
-//        array.add(slots3);
-//        array.add(slots4);
+        array.add(slots3);
+        array.add(slots4);
+        array.add(slots5);
 
 
         // specify an adapter (see also next example)

@@ -25,7 +25,7 @@ import com.bione.corona.utils.ValidationUtil;
 
 import java.util.ArrayList;
 
-import static com.bione.corona.ui.SurveyActivity.resultCorona;
+import static com.bione.corona.ui.SurveyActivity.conditionCorona;
 
 public class Question8CoughingFragment extends Fragment {
 
@@ -74,13 +74,13 @@ public class Question8CoughingFragment extends Fragment {
 
                     if (mAdapter.getCheckedPosition() >= 0) {
                         if (mAdapter.getCheckedPosition() == 0) {
-                            resultCorona = resultCorona + 1;
+                            conditionCorona = conditionCorona + 1;
                         }
                         Activity activity = getActivity();
                         if (activity instanceof SurveyActivity) {
                             SurveyActivity myActivity = (SurveyActivity) activity;
-                            Log.d("resultCorona", ": " + resultCorona);
-                            if (resultCorona > 0) {
+                            Log.d("conditionCorona", ": " + conditionCorona);
+                            if (conditionCorona > 0) {
                                 Intent intent = new Intent(myActivity, ResultActivity.class);
                                 intent.putExtra("type", "3");
                                 startActivity(intent);

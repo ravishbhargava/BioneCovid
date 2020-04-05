@@ -51,22 +51,46 @@ public class DashBoardActivity extends BaseActivity {
         RestClient.getApiInterface2().getCoronaResults().enqueue(new ResponseResolver<Example>() {
             @Override
             public void onSuccess(Example commonResponse) {
-                Log.d("onSuccess", "" + commonResponse.getStatewise().size());
-                tvDeceased.setText("" + commonResponse.getStatewise().get(0).getDeaths());
-                tvConfirmedCases.setText("" + commonResponse.getStatewise().get(0).getConfirmed());
-                tvRecoveredCases.setText("" + commonResponse.getStatewise().get(0).getRecovered());
-                tvNewCases.setText("" + commonResponse.getKeyValues().get(0).getConfirmeddelta());
+
+                try {
+                    if (commonResponse.getStatewise() != null) {
+
+                        Log.d("onSuccess", "" + commonResponse.getStatewise().size());
+                        if (commonResponse.getStatewise().get(0).getDeaths() != null) {
+                            tvDeceased.setText("" + commonResponse.getStatewise().get(0).getDeaths());
+                        }
+                        if (commonResponse.getStatewise().get(0).getConfirmed() != null) {
+                            tvConfirmedCases.setText("" + commonResponse.getStatewise().get(0).getConfirmed());
+                        }
+                        if (commonResponse.getStatewise().get(0).getRecovered() != null) {
+                            tvRecoveredCases.setText("" + commonResponse.getStatewise().get(0).getRecovered());
+                        }
+                        if (commonResponse.getStatewise().get(0).getDeltaConfirmed() != null) {
+                            tvNewCases.setText("" + commonResponse.getStatewise().get(0).getDeltaConfirmed());
+                        }
+                        if (commonResponse.getKeyValues() != null) {
+                            if (commonResponse.getKeyValues().get(0).getConfirmeddelta() != null) {
+                                tvNewCases.setText("" + commonResponse.getKeyValues().get(0).getConfirmeddelta());
+                            }
+                        }
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
             }
 
             @Override
             public void onError(ApiError error) {
 //                Log.d("onError", "" + error.getMessage());
+                showErrorMessage(error.getMessage());
             }
 
             @Override
             public void onFailure(Throwable throwable) {
 //                Log.d("onFailure", "" + throwable.getMessage());
+                showErrorMessage(throwable.getMessage());
             }
         });
     }

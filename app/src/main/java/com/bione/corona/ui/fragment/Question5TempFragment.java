@@ -22,7 +22,7 @@ import com.bione.corona.utils.ValidationUtil;
 
 import java.util.ArrayList;
 
-import static com.bione.corona.ui.SurveyActivity.resultCorona;
+import static com.bione.corona.ui.SurveyActivity.conditionCorona;
 
 public class Question5TempFragment extends Fragment {
 
@@ -74,7 +74,7 @@ public class Question5TempFragment extends Fragment {
                         if (activity instanceof SurveyActivity) {
                             SurveyActivity myActivity = (SurveyActivity) activity;
                             if (mAdapter.getCheckedPosition() > 0) {
-                                resultCorona = resultCorona + 1;
+                                conditionCorona = conditionCorona + 1;
                             }
                             myActivity.nextStep(1);
                         }
