@@ -41,30 +41,22 @@ public class LoginActivity extends BaseActivity {
         etPassword = findViewById(R.id.etPassword);
 
         ivBack = findViewById(R.id.ivBack);
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
+
+        ivBack.setOnClickListener(view -> finish());
+
+        tvContinue.setOnClickListener(view -> checkValidation());
+    }
+
+    private void checkValidation() {
+        if (ValidationUtil.checkEmail(etEmail.getText().toString())) {
+            if (ValidationUtil.checkPassword(etPassword.getText().toString())) {
+                callApi();
+            } else {
+                showErrorMessage(R.string.error_password);
             }
-        });
-
-        tvContinue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-                if (ValidationUtil.checkEmail(etEmail.getText().toString())) {
-                    if (ValidationUtil.checkPassword(etPassword.getText().toString())) {
-                        callApi();
-                    } else {
-                        showErrorMessage(R.string.error_password);
-                    }
-                } else {
-                    showErrorMessage(R.string.error_email);
-                }
-
-            }
-        });
+        } else {
+            showErrorMessage(R.string.error_email);
+        }
     }
 
     private void callApi() {

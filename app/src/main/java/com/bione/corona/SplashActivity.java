@@ -7,20 +7,32 @@ import androidx.core.content.ContextCompat;
 
 
 import android.Manifest;
+import android.app.AlarmManager;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 import android.location.LocationListener;
 
 import com.bione.corona.ui.DashBoardActivity;
 import com.bione.corona.ui.MainActivity;
 import com.bione.corona.ui.base.BaseActivity;
+import com.bione.corona.ui.base.MyBroadCastReceiver;
+import com.bione.corona.ui.base.MyJobService;
 import com.bione.corona.utils.CommonData;
 import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -29,6 +41,8 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.analytics.Tracker;
 import com.google.firebase.analytics.FirebaseAnalytics;
+
+import java.util.Calendar;
 
 
 public class SplashActivity extends BaseActivity implements LocationListener {
@@ -40,12 +54,16 @@ public class SplashActivity extends BaseActivity implements LocationListener {
     private LocationManager locationManager;
     private String provider;
 
+    private BroadcastReceiver broadcastReceiver;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
         Log.i("aagya.", "aaagya");
+
+        broadcastReceiver = new MyBroadCastReceiver();
 
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
@@ -99,9 +117,13 @@ public class SplashActivity extends BaseActivity implements LocationListener {
 
         checkLocationPermission();
 
+        createNotificationChannel();
+
+
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 // do something...
+                createAlarm();
                 if (CommonData.getPassword() == null) {
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
@@ -121,7 +143,7 @@ public class SplashActivity extends BaseActivity implements LocationListener {
                 }
 
             }
-        }, 3000);
+        }, 2000);
 
 //        // Get the location manager
 //        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -140,7 +162,81 @@ public class SplashActivity extends BaseActivity implements LocationListener {
 //            Toast.makeText(getApplicationContext(), "Location not available", Toast.LENGTH_SHORT).show();
 ////            longitudeField.setText("Location not available");
 //        }
+
+
     }
+
+    /**
+     * create alarm for notification
+     */
+    private void createAlarm() {
+        Intent myIntent = new Intent(SplashActivity.this, MyBroadCastReceiver.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(SplashActivity.this, 0, myIntent, 0);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.SECOND, 0);
+        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.HOUR, 2);
+        calendar.set(Calendar.AM_PM, Calendar.PM);
+        calendar.add(Calendar.DAY_OF_MONTH, 1);
+
+        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pendingIntent);
+
+//        scheduleJob();
+    }
+
+
+    public void scheduleJob() {
+        ComponentName componentName = new ComponentName(getApplicationContext(), MyJobService.class);
+
+        JobInfo jobInfo = new JobInfo.Builder(123, componentName)
+                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+                .setPersisted(true)
+                .setPeriodic(1000 * 15 * 60)
+                .build();
+
+        JobScheduler jobScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        int resulCode = jobScheduler.schedule(jobInfo);
+        if (resulCode == JobScheduler.RESULT_SUCCESS) {
+            Log.d("splash", "success");
+        } else {
+            Log.d("splash", "failed");
+        }
+    }
+
+    public void cancelJob() {
+        JobScheduler jobScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        jobScheduler.cancel(123);
+        Log.d("splash", "Job Cancel");
+    }
+
+    /**
+     * Create the NotificationChannel, but only on API 26+ because
+     * the NotificationChannel class is new and not in the support library
+     */
+    private void createNotificationChannel() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Log.d("-------------     notification created", " here...............");
+            CharSequence name = "Covid";
+            String description = "Bione";
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            NotificationChannel channel = new NotificationChannel("coronaId", name,
+                    importance);
+            channel.setDescription(description);
+            // Register the channel with the system; you can't change the importance
+            // or other notification behaviours after this
+            NotificationManager notificationManager =
+                    getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        } else {
+            Log.d("---++++++++ ----- +++++++ -----     notification created", " else...............");
+        }
+    }
+
 
     /* Request updates at startup */
     @Override
