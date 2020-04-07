@@ -117,13 +117,13 @@ public class SplashActivity extends BaseActivity implements LocationListener {
 
         checkLocationPermission();
 
-        createNotificationChannel();
+//        createNotificationChannel();
 
 
         new Handler().postDelayed(new Runnable() {
             public void run() {
                 // do something...
-                createAlarm();
+//                createAlarm();
                 if (CommonData.getPassword() == null) {
                     Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                     startActivity(intent);
@@ -337,8 +337,7 @@ public class SplashActivity extends BaseActivity implements LocationListener {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST_LOCATION: {
                 // If request is cancelled, the result arrays are empty.
