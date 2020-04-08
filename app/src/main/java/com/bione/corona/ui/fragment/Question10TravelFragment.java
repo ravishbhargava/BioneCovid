@@ -75,7 +75,8 @@ public class Question10TravelFragment extends Fragment {
                             SurveyActivity myActivity = (SurveyActivity) activity;
                             if (mAdapter.getCheckedPosition() == 0) {
                                 Intent intent = new Intent(myActivity, ResultActivity.class);
-                                intent.putExtra("type", "1");
+                                intent.putExtra("type", "2");
+                                intent.putExtra("title", getResources().getString(R.string.result_consul_avoid));
                                 startActivity(intent);
                                 myActivity.finish();
                             } else {

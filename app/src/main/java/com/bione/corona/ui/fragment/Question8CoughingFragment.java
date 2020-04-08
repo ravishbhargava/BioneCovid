@@ -83,6 +83,7 @@ public class Question8CoughingFragment extends Fragment {
                             if (conditionCorona > 0) {
                                 Intent intent = new Intent(myActivity, ResultActivity.class);
                                 intent.putExtra("type", "3");
+                                intent.putExtra("title", getResources().getString(R.string.result_emergency_call));
                                 startActivity(intent);
                                 myActivity.finish();
                             } else {

@@ -24,7 +24,7 @@
                 android:visibility="visible">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvTitle"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -37,7 +37,7 @@
                     android:textSize="@dimen/font_large" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-
+                    android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -48,17 +48,7 @@
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/font_small" />
 
-                <androidx.appcompat.widget.AppCompatTextView
 
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_gravity="center"
-
-                    android:text="@string/quarantine_stay_home_and_monitor_your"
-                    android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.FontPath.semiBold"
-                    android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/ivBack"

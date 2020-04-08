@@ -24,7 +24,7 @@
                 android:visibility="visible">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tvTitle"
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -36,7 +36,7 @@
                     android:textSize="@dimen/font_large" />
 
                 <androidx.appcompat.widget.AppCompatTextView
-
+                    android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
@@ -45,7 +45,7 @@
                     android:text="@string/consult_health_care_provider_navoid_all_contact"
                     android:textAlignment="center"
                     android:textAppearance="@style/TextAppearance.FontPath"
-                    android:textColor="@color/black"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/font_small" />
 
                 <androidx.appcompat.widget.AppCompatImageView

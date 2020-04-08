@@ -78,15 +78,21 @@ public class Question11TravelFragment extends Fragment {
                             Intent intent = new Intent(myActivity, ResultActivity.class);
                             if (resultType == 1) {
                                 if (mAdapter.getCheckedPosition() == 0 || mAdapter.getCheckedPosition() == 1 || mAdapter.getCheckedPosition() == 2) {
-                                    intent.putExtra("type", "2");
+                                    intent.putExtra("type", "1");
+                                    intent.putExtra("title", getResources().getString(R.string.result_quarantine));
                                 } else {
                                     intent.putExtra("type", "1");
+                                    intent.putExtra("title", getResources().getString(R.string.result_follow_preventive));
+
                                 }
                             } else {
                                 if (mAdapter.getCheckedPosition() == 0 || mAdapter.getCheckedPosition() == 1 || mAdapter.getCheckedPosition() == 2) {
-                                    intent.putExtra("type", "1");
-                                } else {
                                     intent.putExtra("type", "2");
+                                    intent.putExtra("title", getResources().getString(R.string.result_avoid_consult));
+                                } else {
+                                    intent.putExtra("type", "1");
+                                    intent.putExtra("title", getResources().getString(R.string.result_stay_home));
+
                                 }
                             }
                             startActivity(intent);
